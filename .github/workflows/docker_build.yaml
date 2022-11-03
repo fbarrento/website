@@ -15,12 +15,22 @@ jobs:
     - name: Run a one-line script
       run: echo Hello, mundo!
 
+    - name: Extract branch name on push
+      if: github.event_name != 'pull_request'
+      shell: bash
+      run: echo "::set-env name=BRANCH_NAME::$(echo ${GITHUB_REF#refs/heads/})"
+      id: extract_branch
+
+    - name: Extract branch name on pull request
+      if: github.event_name == 'pull_request'
+      run: echo "::set-env name=BRANCH_NAME::$(echo ${GITHUB_HEAD_REF})"
+
     # Build and Publish the Docker Image
     - uses: mr-smithers-excellent/docker-build-push@v5
       name: Build & push Docker image
       with:
         image: frankdev/website
-        tags: ${{ github.ref_name }}-${{ github.run_id }}, ${{ github.ref_name }}-latest
+        tags: $BRANCH_NAME-${{ github.run_id }}, $BRANCH_NAME-latest
         registry: barrentix.azurecr.io
         dockerfile: Dockerfile
         username: ${{ secrets.DOCKER_USERNAME }}
