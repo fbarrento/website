@@ -1,0 +1,13 @@
+name: Docker Build
+
+on: 
+
+  pull_request:
+    branches: [ develop, features/*, main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+
+    steps:
+    - uses: actions/checkout@v1
