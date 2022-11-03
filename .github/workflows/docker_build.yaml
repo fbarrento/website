@@ -19,6 +19,7 @@ jobs:
       name: Build & push Docker image
       with:
         image: frankdev/website
+        tags: $GITHUB_REF_NAME
         registry: barrentix.azurecr.io
         dockerfile: Dockerfile
         username: ${{ secrets.DOCKER_USERNAME }}
