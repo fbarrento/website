@@ -15,10 +15,12 @@ jobs:
     - name: Run a one-line script
       run: echo Hello, mundo!
 
+    # Build and Publish the Docker Image
     - uses: mr-smithers-excellent/docker-build-push@v5
       name: Build & push Docker image
       with:
         image: frankdev/website
+        tags: ${GITHUB_REF_NAME}-${GITHUB_RUN_ID}, ${GITHUB_REF_NAME}-latest
         registry: barrentix.azurecr.io
         dockerfile: Dockerfile
         username: ${{ secrets.DOCKER_USERNAME }}
