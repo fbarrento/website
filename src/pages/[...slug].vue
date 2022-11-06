@@ -1,7 +1,9 @@
+<script setup>
+</script>
 <template>
-    <main>
-        <h2>FrankDev.io</h2>
-        <hr />
-        <ContentDoc />
-    </main>
+    <NuxtLayout name="default">
+        <main>
+            <ContentDoc />
+        </main>
+    </NuxtLayout>
 </template>
