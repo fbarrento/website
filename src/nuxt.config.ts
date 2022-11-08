@@ -18,7 +18,7 @@ export default defineNuxtConfig({
         highlight: {
           theme: {
             // Default theme (same as single string)
-            default: 'github-light',
+            default: 'monokai',
             // Theme used if `html.dark`
             dark: 'github-dark',
             // Theme used if `html.sepia`
@@ -29,7 +29,10 @@ export default defineNuxtConfig({
             'cpp',
             'java',
             'php',
-            'python'
+            'python',
+            'shell',
+            'bash',
+            'javascript',
           ]
         }
       }
