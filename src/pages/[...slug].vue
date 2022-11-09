@@ -2,9 +2,9 @@
 </script>
 <template>
     <NuxtLayout name="default">
-        <main>
+        <main class="pt-16">
             <article class="prose">
-            <ContentDoc />
+                <ContentDoc />
             </article>
         </main>
     </NuxtLayout>
