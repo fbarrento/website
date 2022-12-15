@@ -1,6 +1,4 @@
 <script setup>
-
-
 const authors = await queryContent('authors').find()
 
 function getAuthor(path) {
@@ -12,13 +10,8 @@ function getAuthor(path) {
 
 const episodes = await queryContent('series')
     .where({ type: "episode" })
-    .sort({ episode: -1 })
+    .sort({ date: -1 })
     .find()
-
-
-
-
-
 </script>
 <template>
     <NuxtLayout name="default">
