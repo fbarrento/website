@@ -1,23 +1,34 @@
 <script setup>
-
-
 const authors = await queryContent('authors').find()
-
-function getAuthor(path) {
-         return authors.find(
-            author => `/authors/${path}` === author._path
-        )
-    
-    }
 
 const episodes = await queryContent('series')
     .where({ type: "episode" })
-    .sort({ episode: -1 })
+    .sort({ date: -1 })
     .find()
 
 
+const series = await queryContent('series')
+    .where({ type: "serie" })
+    .sort({ date: -1 })
+    .find()
 
 
+function getAuthor(path) {
+        return authors.find(
+        author => `/authors/${path}` === author._path
+    )
+
+}
+
+function getSerie(path) {
+    console.log(path)
+    return series.find(
+        serie => { 
+            console.log(serie)
+            return `/series/${path}` === serie._path 
+        }
+    )
+}
 
 </script>
 <template>
@@ -25,7 +36,7 @@ const episodes = await queryContent('series')
         <template #hero>
             <Hero />
         </template>
-    <div>
+    <div class="flex">
         <div class="md:w-4/6">
             <h3 class="text-gray-500 font-medium pb-3">
                 recent episodes
@@ -42,7 +53,7 @@ const episodes = await queryContent('series')
                             {{ getAuthor(episode.author).username }}
                         </span> in 
                         <span class="font-semibold">
-                            Building Frandev.io Website
+                            {{ getSerie(episode.serie).title }}
                         </span>
                     </div>
                 </div>
@@ -54,6 +65,16 @@ const episodes = await queryContent('series')
                 </h2>
                 <p class="text-gray-500">{{ episode.description }}</p>
             </article>
+        </div>
+        <div class="md:w-2/6">
+            <h3 class="text-gray-500 font-medium pb-3">
+                recent series
+            </h3>
+            <ul>
+                <li v-for="serie in series" :key="serie._id">
+                    {{ serie.title }}
+                </li>
+            </ul>
         </div>
     </div>
 </NuxtLayout>
