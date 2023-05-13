@@ -4,4 +4,4 @@ services:
   nuxt:
     image: barrentix.azurecr.io/frankdev/website:${IMAGE_TAG}
     ports:
-      - "3001:3000"
+      - "${PORT}:3000"
