@@ -17,7 +17,7 @@ jobs:
 
     - uses: mr-smithers-excellent/docker-build-push@v5
       name: Build & push Docker image
-      if: startsWith(github.ref, 'ref/heads/release')
+      if: startsWith(github.ref, 'ref/heads/release') == true
       with:
         image: frankdev/website
         tags: beta-${{ github.run_id }}, beta-latest
