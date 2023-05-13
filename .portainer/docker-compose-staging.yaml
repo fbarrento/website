@@ -1,7 +1,0 @@
-version: "3.8"
-
-services:
-  nuxt:
-    image: barrentix.azurecr.io/frankdev/website:develop-latest
-    ports:
-      - "3001:3000"

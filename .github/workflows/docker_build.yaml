@@ -3,7 +3,7 @@ name: Docker Build
 on: 
 
   push:
-    branches: [ develop, features/*, main ]
+    branches: [ develop, release/*, main ]
 
 jobs:
   build:
@@ -17,9 +17,21 @@ jobs:
 
     - uses: mr-smithers-excellent/docker-build-push@v5
       name: Build & push Docker image
+      if: startsWith(github.ref, 'ref/heads/release/')
       with:
         image: frankdev/website
-        tags: ${{ github.ref_name }}-${{ github.run_id }}, ${{ github.ref_name }}-latest
+        tags: beta-${{ github.run_id }}, beta-latest
+        registry: barrentix.azurecr.io
+        dockerfile: Dockerfile
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+
+    - uses: mr-smithers-excellent/docker-build-push@v5
+      name: Build & push Docker image
+      if: ${{ github.ref == 'ref/heads/main' }}
+      with:
+        image: frankdev/website
+        tags: ${{ github.run_id }}, latest
         registry: barrentix.azurecr.io
         dockerfile: Dockerfile
         username: ${{ secrets.DOCKER_USERNAME }}
