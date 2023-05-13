@@ -1,25 +1,19 @@
 ---
-title: Homelab
+title: My Homelab
 type: serie
-description: In this series we will follow the plan and setup of a kubernetes cluster fleet composed of two clusters, one for the staging environment and another for the production environment. Throughout the episodes we will cover topics such as the steps of continuous integration and continuous deployment of the kubernetes cluster infrastructure and the management of its configuration all automatically using the Azure DevOps Pipelines.
+description: Follow the build of Frank Homelab. 
 author:
   name: Francisco Barrento
   email: francisco.barrento@gmail.com
 status: In Progress
-date: Thu  15 Dec 2022 16:16:34 WET
+date: Thu 15 Dec 2022 16:16:34 WET
 seasons: 1
 ---
 
-In this series we will follow the plan and setup of a kubernetes cluster fleet composed of two clusters, one for the staging environment and another for the production environment. Throughout the episodes we will cover topics such as the steps of continuous integration and continuous deployment of the kubernetes cluster infrastructure and the management of its configuration all automatically using the Azure DevOps Pipelines.
+# My Homelab
+
+Follow the development of this website. Throughout this series we will follow all the steps needed to create a website in Nuxt 3, how to deploy it on a kubernetes cluster, and how to create and publish content.
 
 <!-- more -->
 
-Hello Mundo !
-
-```php
-<?php
-
-    echo "Hello Mundo"
-
-?>
-```
+TBD more content

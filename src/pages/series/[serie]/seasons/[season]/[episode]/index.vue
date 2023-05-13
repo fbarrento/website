@@ -1,7 +1,11 @@
 <script setup>
 </script>
 <template>
-    <main>
-        <ContentDoc />
-    </main>
+    <NuxtLayout name="default">
+        <main class="pt-16">
+            <article class="prose">
+                <ContentDoc />
+            </article>
+        </main>
+    </NuxtLayout>
 </template>
