@@ -26,6 +26,12 @@ jobs:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
 
+    - name: Invoke deployment hook
+      uses: distributhor/workflow-webhook@v3
+      if: startsWith(github.ref, 'ref/heads/release/')
+      env:
+        webhook_url: ${{ secrets.STAGING_PORTAINER_WEBHOOK }}?IMAGE_TAG=beta-${{ github.run_id }}
+
     - uses: mr-smithers-excellent/docker-build-push@v5
       name: Build & push Docker image
       if: ${{ github.ref == 'ref/heads/main' }}
@@ -36,3 +42,9 @@ jobs:
         dockerfile: Dockerfile
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
+
+    - name: Invoke deployment hook
+      uses: distributhor/workflow-webhook@v3
+      if: ${{ github.ref == 'ref/heads/main' }}
+      env:
+        webhook_url: ${{ secrets.PRODUCTION_PORTAINER_WEBHOOK }}?IMAGE_TAG=${{ github.run_id }}
