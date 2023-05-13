@@ -35,3 +35,9 @@ In my Home Lab I have three machines running:
 
 |Name |**Raspberry PI 4 8GB**|
 |--|--|
+
+Added a new pipeline to trigger on release branches or to tag the image on a different way
+
+Adding docker compose files
+
+Create a new Stack on Portainer
