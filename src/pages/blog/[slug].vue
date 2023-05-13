@@ -14,7 +14,7 @@ const { data } = await useAsyncData('article', () => {
 
 </script>
 <template>
-    <article v-if="data">
+    <article v-if="data" class="prose">
       <ContentDoc  :value="data" />
     </article>
   </template>
