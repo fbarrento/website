@@ -46,7 +46,7 @@ This is a image and I wan't user to be able to open it on a blank browser tab
 
 ```
 
-And we have an image in our `assets/` directory, in `assets/img/article-1/article-img.png`
+And we have an image in our `public` directory, in `assets/img/article-1/article-img.png`
 
 If we want to add the image to our article if we use markdown to added it, like `![HomeLab Diagram](/img/article-1/article-image.png)` the first problem is that the Nuxt Content module will look for images under the directory public and it will not found this one since this is on the assets folder. 
 
@@ -73,22 +73,30 @@ Let's create a new component `/components/content/ImageLinkContainer.vue`
 ```html
 <template>
     <a 
-        :href="getImageUrl()"
-        :target="target" 
-        class="
-            flex
-            flex-col
-            items-center
-            text-sm
-            no-underline
-            font-normal
-            mb-16">
-        <img :src="getImageUrl()" :alt="alt" class="mb-2" />
-        <span v-if="legend" class="text-gray-500 -mt-2">
-            {{ legend }}
-        </span>
+        :href="src"
+        :target="target"
+        class="article-image-wrapper not-prose">
+        <figure class="">
+            <img :src="src" :alt="alt" class="mb-2" />
+            <figcaption  v-if="legend" class="caption">
+                {{ legend }}
+            </figcaption>
+        </figure>
     </a>
 </template>
+<style scoped>
+.article-image-wrapper {
+    @apply flex flex-col items-center text-sm no-underline font-normal mb-16;
+}
+
+img {
+    @apply rounded-lg;
+}
+
+.caption {
+    @apply text-gray-500 italic text-sm text-center;
+}
+</style>
 ```
 
 In our `<script>` we'll have
@@ -105,19 +113,7 @@ const props = defineProps({
         default: '_self'
     }
 })
-
-const getImageUrl = () => {
-    try {
-        const src = props.src;
-        return new URL(
-            `../../assets/img/${src}`,
-            import.meta.url
-        );
-    } catch(err) {
-        console.log(err);
-        return null
-    }
-}
+</script>
 ```
 
 Our ImageLinkContainer component takes the following attributes `src`, `alt`, `legend` and `target`, behind the scenes our component is creating a URL of the image stored in the assets folder. We can also give it a legend that will be shown bellow our image and we can set the target of the link if you pass `_blank` the image will be opened in a new tab of the browser.
@@ -136,11 +132,11 @@ Some cool text here
 
 This is a image and I wan't user to be able to open it on a blank browser tab
 
-:ImageLinkContainer{src="articles/article-1/article-image.png" alt="HomeLab Diagram" target="_blank" legend="My HomeLab Diagram"}
+:ImageLinkContainer{src="/assets/img/articles/article-1/article-image.png" alt="HomeLab Diagram" target="_blank" legend="My HomeLab Diagram"}
 
 //Or you can use
 <ImageLinkContainer
-    src="articles/article-1/article-image.png"
+    src="/assets/img/articles/article-1/article-image.png"
     alt="HomeLab Diagram"
     target="_blank"
     legend="My HomeLab Diagram"></ImageLinkContainer>
@@ -150,25 +146,18 @@ This is a image and I wan't user to be able to open it on a blank browser tab
 
 There you have it! Our component should be able to display our images for our articles wrapped in a link from the assets directory.
 
-
 ## Useful links
 
 Here are some related links that I think you might find useful
 
-- Create a blog with Nuxt Content - [Build a Blog w/ Nuxt 3 Content](https://www.vuemastery.com/courses/build-a-blog-nuxt3-content/nuxt3-blog-introduction/){:target="_blank"}
-- How to use components in markdown - [MDC Syntax](https://content.nuxtjs.org/guide/writing/mdc){:target="_blank"}
 - Nuxt Content Module - [Nuxt Content](https://content.nuxtjs.org/){:target="_blank"}
+- How to use components in markdown - [MDC Syntax](https://content.nuxtjs.org/guide/writing/mdc){:target="_blank"}
 - [Working with images in Nuxt Content | Woet Flow](https://woetflow.com/posts/working-with-images-in-nuxt-content/){:target="_blank"}
 
 ## The final result
 
-:ImageLinkContainer{src="articles/article-1/article-image.png" alt="HomeLab Diagram" target="_blank" legend="My HomeLab Diagram"}
+:ImageLinkContainer{src="/assets/img/articles/article-1/article-image.png" alt="HomeLab Diagram" target="_blank" legend="My HomeLab Diagram"}
 
-<ImageLinkContainer
-    src="articles/article-1/article-image.png"
-    alt="HomeLab Diagram"
-    target="_blank"
-    legend="My HomeLab Diagram"></ImageLinkContainer>
 
 
 
