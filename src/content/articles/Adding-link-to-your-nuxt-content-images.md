@@ -5,11 +5,9 @@ description: Here is a way to add links to your articles images in your nuxt/con
 coverImage: 
 alt: adding-link-to-your-nuxt-content-images
 readingTime: 4 min read
-tags:
-    - Nuxt
-    - Nuxt Content
-    - Vue
-    - Blog features
+tags: [Nuxt, Nuxt Content, Vue, Blog features]
+createdAt: 2023-05-14T23:00:00:000Z
+updatedAt: 2023-05-14T23:00:00:000Z
 navigation: false
 ---
 
