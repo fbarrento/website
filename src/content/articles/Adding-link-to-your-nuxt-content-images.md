@@ -150,25 +150,21 @@ This is a image and I wan't user to be able to open it on a blank browser tab
 
 There you have it! Our component should be able to display our images for our articles wrapped in a link from the assets directory.
 
+:ImageLinkContainer{src="articles/article-1/article-image.png" alt="HomeLab Diagram" target="_blank" legend="My HomeLab Diagram"}
+:ImageLinkContainer{src="articles/article-1/move_frankdevio_to_homelab_diagram.png" alt="HomeLab Diagram" target="_blank" legend="My HomeLab Diagram"}
 
 ## Useful links
 
 Here are some related links that I think you might find useful
 
-- Create a blog with Nuxt Content - [Build a Blog w/ Nuxt 3 Content](https://www.vuemastery.com/courses/build-a-blog-nuxt3-content/nuxt3-blog-introduction/){:target="_blank"}
-- How to use components in markdown - [MDC Syntax](https://content.nuxtjs.org/guide/writing/mdc){:target="_blank"}
 - Nuxt Content Module - [Nuxt Content](https://content.nuxtjs.org/){:target="_blank"}
+- How to use components in markdown - [MDC Syntax](https://content.nuxtjs.org/guide/writing/mdc){:target="_blank"}
 - [Working with images in Nuxt Content | Woet Flow](https://woetflow.com/posts/working-with-images-in-nuxt-content/){:target="_blank"}
 
 ## The final result
 
 :ImageLinkContainer{src="articles/article-1/article-image.png" alt="HomeLab Diagram" target="_blank" legend="My HomeLab Diagram"}
 
-<ImageLinkContainer
-    src="articles/article-1/article-image.png"
-    alt="HomeLab Diagram"
-    target="_blank"
-    legend="My HomeLab Diagram"></ImageLinkContainer>
 
 
 
