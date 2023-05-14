@@ -2,19 +2,30 @@
 
 const route = useRoute()
 const router = useRouter()
-//console.log(route.params, router, router.params)
 
-const { data } = await useAsyncData('article', () => {
-    
-    console.log(route.path)
-    return queryContent('').where({_path: route.path}).findOne()
+const { data: article } = await useAsyncData('article', () => {
+    return queryContent('articles').where({slug: route.params.slug}).findOne()
 })
 
 
 
 </script>
 <template>
-    <article v-if="data" class="prose">
-      <ContentDoc  :value="data" />
+  <NuxtLayout name="article">
+    <article v-if="article" class="px-4">
+      <div class="mb-8">
+          <h1 class="text-5xl font-bold leading-none mt-16">
+            {{ article.title }}
+          </h1>
+          <p class="my-4 text-lg lg:text-xl text-gray-500">{{ article.description }}</p>
+          {{ article.readingTime }}
+          <div class="pt-12 pb-8 overflow-hidden" v-if="article.coverImage">
+            <img :src="article.coverImage" :alt="article.alt" class="w-full object-cover" />
+          </div>
+        </div>
+        <div class="prose max-w-full lg:prose-lg">
+         <ContentRenderer :value="article" />
+        </div>
     </article>
+  </NuxtLayout>
   </template>
