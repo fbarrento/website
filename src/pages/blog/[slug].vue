@@ -14,7 +14,7 @@ const { data: article } = await useAsyncData('article', () => {
   <NuxtLayout name="article">
     <article v-if="article" class="px-4">
       <div class="mb-8">
-          <h1 class="text-5xl font-bold leading-none mt-16">
+          <h1 class="text-3xl lg:text-5xl font-bold leading-none mt-8 lg:mt-16">
             {{ article.title }}
           </h1>
           <p class="my-4 text-lg lg:text-xl text-gray-500">{{ article.description }}</p>
