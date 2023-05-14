@@ -2,7 +2,7 @@
 slug: moving-frankdev-to-homelab
 title: 'Moving Frankdev.io to the HomeLab'
 description: Frankdev.io website was moved to my HomeLab. The website runs on a docker container that is managed by Portainer a powerful container management system for Devs.
-coverImage: /img/move_frankdevio_to_homelab_portainer.png
+coverImage: /assets/img/articles/article-1/move_frankdevio_to_homelab_portainer.png
 alt: move-frankdevio-to-homelab-portainer
 readingTime: 12 min read
 navigation: false
@@ -20,7 +20,7 @@ Well I always wanted a Home Lab and if I am spending more money than anticipated
 By the way I would like to say that I have these servers running on Hetzner for over a year without a single incident, so I can only speak well and recommend the use of this cloud.
 
 
-:ImageLinkContainer{src="articles/article-1/move_frankdevio_to_homelab_diagram.png" alt="HomeLab Diagram" target="_blank" legend="My HomeLab Diagram"}
+:ImageLinkContainer{src="/assets/img/articles/article-1/move_frankdevio_to_homelab_diagram.png" alt="HomeLab Diagram" target="_blank" legend="My HomeLab Diagram"}
 
 
 
