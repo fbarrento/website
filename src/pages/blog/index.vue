@@ -55,7 +55,7 @@ const articleSlug = (path: string) => {
                                         :key="article._path"
                                         class="list-item"
                                     >
-                                        <NuxtLink :to="article._path.replace('articles', 'blog')">
+                                        <NuxtLink :to="articleSlug(article._path)">
                                         <h2>{{ article.title }}</h2>
                                         <p class="article-description">
                                             {{ article.description }}
