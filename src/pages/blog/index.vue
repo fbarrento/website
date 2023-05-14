@@ -60,6 +60,11 @@ const articleSlug = (path: string) => {
                                         <p class="article-description">
                                             {{ article.description }}
                                         </p>
+                                        <ul class="flex gap-2 my-2 flex-wrap">
+                                            <li class="rounded p-1 px-2 text-sm text-white bg-green-500" v-for="(tag, n) in article.tags" :key="n">
+                                                <span class="block">{{ tag }}</span>
+                                            </li>
+                                        </ul>
                                         </NuxtLink>
                                     </li>
                                 </ul>
@@ -85,7 +90,7 @@ const articleSlug = (path: string) => {
 }
 
 .list-item h2 {
-    @apply text-3xl lg:text-4xl font-bold lg:leading-tight;
+    @apply text-3xl lg:text-4xl font-bold leading-none lg:leading-tight;
 }
 
 .article-description {
