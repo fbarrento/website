@@ -6,6 +6,8 @@ coverImage: /assets/img/articles/article-1/move_frankdevio_to_homelab_portainer.
 alt: move-frankdevio-to-homelab-portainer
 readingTime: 12 min read
 navigation: false
+createdAt: 2023-05-13T23:00:00:000Z
+updatedAt: 2023-05-13T23:00:00:000Z
 ---
 
 
