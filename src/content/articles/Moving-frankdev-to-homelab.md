@@ -1,11 +1,12 @@
 ---
 slug: moving-frankdev-to-homelab
-title: 'Moving Frankdev.io to the HomeLab'
-description: Frankdev.io website was moved to my HomeLab. The website runs on a docker container that is managed by Portainer a powerful container management system for Devs.
+title: 'Moved Frankdev.io into my HomeLab'
+description: Here are a brief overview of my HomeLab and the operations that I have made to move Frankdev.io website from a K8s cluster hosted on Hetzner to my HomeLab.
 coverImage: /assets/img/articles/article-1/move_frankdevio_to_homelab_portainer.png
 alt: move-frankdevio-to-homelab-portainer
 readingTime: 12 min read
 navigation: false
+tags: [Nuxt, Vue, Homelab, Portainer, CI/CD]
 createdAt: 2023-05-13T23:00:00:000Z
 updatedAt: 2023-05-13T23:00:00:000Z
 ---
