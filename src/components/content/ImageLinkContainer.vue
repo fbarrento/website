@@ -10,23 +10,34 @@ const props = defineProps({
     }
 })
 
-const getImageUrl = () => {
-    try {
-        const src = props.src;
-        return new URL (`../../assets/img/${src}`, import.meta.url);
-    } catch(err) {
-        console.log(err);
-        return null
-    }
-}
+
 
 </script>
 
 <template>
-    <a :href="getImageUrl()" :target="target" class="flex flex-col items-center text-sm no-underline font-normal mb-16">
-        <img :src="getImageUrl()" :alt="alt" class="mb-2" />
-        <span v-if="legend" class="text-gray-500 -mt-2">
-            {{ legend }}
-        </span>
+    <a 
+        :href="src"
+        :target="target"
+        class="article-image-wrapper not-prose">
+        <figure class="">
+            <img :src="src" :alt="alt" class="mb-2" />
+            <figcaption  v-if="legend" class="caption">
+                {{ legend }}
+            </figcaption>
+        </figure>
     </a>
 </template>
+
+<style scoped>
+.article-image-wrapper {
+    @apply flex flex-col items-center text-sm no-underline font-normal mb-16;
+}
+
+img {
+    @apply rounded-lg;
+}
+
+.caption {
+    @apply text-gray-500 italic text-sm text-center;
+}
+</style>
