@@ -46,9 +46,9 @@ This is a image and I wan't user to be able to open it on a blank browser tab
 
 And we have an image in our `public` directory, in `assets/img/article-1/article-img.png`
 
-If we want to add the image to our article if we use markdown to added it, like `![HomeLab Diagram](/img/article-1/article-image.png)` the first problem is that the Nuxt Content module will look for images under the directory public and it will not found this one since this is on the assets folder. 
+If we want to add the image to our article if we use markdown to added it, like `![HomeLab Diagram](/img/article-1/article-image.png)` the problem is that we can not put the image inside to a anchor tag. 
 
-If we want to add that image to our article, we can create a component for that.
+If we want to add that image to our article inside of a link, we can create a component for that.
 
 ## Making the component globally available
 
@@ -114,7 +114,7 @@ const props = defineProps({
 </script>
 ```
 
-Our ImageLinkContainer component takes the following attributes `src`, `alt`, `legend` and `target`, behind the scenes our component is creating a URL of the image stored in the assets folder. We can also give it a legend that will be shown bellow our image and we can set the target of the link if you pass `_blank` the image will be opened in a new tab of the browser.
+Our ImageLinkContainer component takes the following attributes `src`, `alt`, `legend` and `target`. We can also give it a legend that will be shown bellow our image and we can set the target of the link if you pass `_blank` the image will be opened in a new tab of the browser.
 
 ## Adding our component to our markdown 
 
