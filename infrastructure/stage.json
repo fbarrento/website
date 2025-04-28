@@ -17,7 +17,7 @@
     "site": {
         "domain": "stage.barrento.dev",
         "project_type": "php",
-        "directory": "/",
+        "directory": "/public",
         "isolated": true,
         "username": "stage-barrento-dev",
         "php_version": "php83"
