@@ -1,0 +1,31 @@
+{
+    "environment": "stage",
+    "serverId": 843752,
+    "siteId": 2696015,
+    "servers": [
+        {
+            "serverId": 843752,
+            "siteId": 2696015,
+            "type": "web"
+        },
+        {
+            "serverId": 842212,
+            "siteId": 2696312,
+            "type": "loadbalancer"
+        }
+    ],
+    "site": {
+        "domain": "stage.barrento.dev",
+        "project_type": "php",
+        "directory": "/",
+        "isolated": true,
+        "username": "stage-barrento-dev",
+        "php_version": "php83"
+    },
+    "git": {
+        "repository": "fbarrento/website",
+        "provider": "github",
+        "branch": "main",
+        "composer": true
+    }
+}
