@@ -53,8 +53,6 @@ final class ContentController
                 ]);
             }
 
-            dd($data->forPage(1, 2));
-
         }
 
         $file = base_path("$this->docsFolder/$slug.md");

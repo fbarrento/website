@@ -20,7 +20,6 @@ test('it returns a list of files', function (): void {
     $files = $this->action->handle('/articles');
 
     expect($files)
-        ->dd()
         ->toHaveCount(3);
 
 });
