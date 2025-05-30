@@ -9,7 +9,6 @@ use App\Services\Forge\Requests\Sites\UpdateLoadBalanceRequest;
 
 final readonly class UpdateLoadBalanceAction
 {
-
     public function __construct(
         protected ForgeConnector $forge
     ) {}
@@ -29,7 +28,5 @@ final readonly class UpdateLoadBalanceAction
 
         return $response->json('servers');
 
-
     }
-
 }

@@ -14,8 +14,7 @@ class GetServerRequest extends Request
 
     public function __construct(
         protected string|int $serverId,
-    ) {
-    }
+    ) {}
 
     /**
      * The endpoint for the request

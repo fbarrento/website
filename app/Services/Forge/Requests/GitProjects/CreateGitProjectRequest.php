@@ -11,7 +11,6 @@ use Saloon\Traits\Body\HasJsonBody;
 
 final class CreateGitProjectRequest extends Request implements HasBody
 {
-
     use HasJsonBody;
 
     /**
@@ -23,7 +22,6 @@ final class CreateGitProjectRequest extends Request implements HasBody
         protected string|int $serverId,
         protected string|int $siteId,
     ) {}
-
 
     /**
      * The endpoint for the request

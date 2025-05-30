@@ -4,6 +4,7 @@ namespace App\Console\Commands\Forge;
 
 use App\Actions\Forge\UpdateSiteAction;
 use Illuminate\Console\Command;
+
 use function base_path;
 use function file_get_contents;
 use function json_decode;
@@ -29,17 +30,16 @@ class UpdateSiteCommand extends Command
      */
     public function handle(UpdateSiteAction $updateSiteAction): void
     {
-        $content = file_get_contents(base_path('/infrastructure/'. $this->option('environment').'.json'));
+        $content = file_get_contents(base_path('/infrastructure/'.$this->option('environment').'.json'));
         $deploymentData = json_decode($content, true);
 
         $siteData = $deploymentData['site'];
-        $serverId =  $deploymentData['serverId'];
+        $serverId = $deploymentData['serverId'];
         $siteId = $deploymentData['siteId'];
 
-
         $site = $updateSiteAction->handle(
-            serverId:  $serverId,
-            siteId:  $siteId,
+            serverId: $serverId,
+            siteId: $siteId,
             payload: $siteData
         );
 

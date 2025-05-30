@@ -9,7 +9,6 @@ use Saloon\Traits\Body\HasJsonBody;
 
 class UpdateLoadBalanceRequest extends Request implements HasBody
 {
-
     use HasJsonBody;
 
     /**
@@ -21,7 +20,6 @@ class UpdateLoadBalanceRequest extends Request implements HasBody
         protected string|int $serverId,
         public string|int $siteId,
     ) {}
-
 
     /**
      * The endpoint for the request

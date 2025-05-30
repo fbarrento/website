@@ -5,7 +5,7 @@ namespace App\Console\Commands\Forge;
 use App\Actions\Forge\ListServersAction;
 use App\Actions\Forge\ListSitesAction;
 use Illuminate\Console\Command;
-use Illuminate\Support\Collection;
+
 use function Laravel\Prompts\select;
 
 class ListSitesCommand extends Command
@@ -37,7 +37,7 @@ class ListSitesCommand extends Command
             ->toArray();
 
         $server = select(
-            label: "Choose server",
+            label: 'Choose server',
             options: $serversOptions
         );
 

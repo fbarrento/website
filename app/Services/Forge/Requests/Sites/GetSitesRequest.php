@@ -7,7 +7,6 @@ use Saloon\Http\Request;
 
 class GetSitesRequest extends Request
 {
-
     public function __construct(protected readonly string|int $serverId) {}
 
     /**

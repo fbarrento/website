@@ -16,6 +16,10 @@
         "laravel/tinker": "^2.10.1",
         "saloonphp/laravel-plugin": "^3.0",
         "saloonphp/saloon": "^3.0",
+        "spatie/laravel-data": "^4.15",
+        "spatie/yaml-front-matter": "^2.1",
+        "symfony/finder": "^7.2",
+        "symfony/yaml": "^7.2",
         "tightenco/ziggy": "^2.4"
     },
     "require-dev": {

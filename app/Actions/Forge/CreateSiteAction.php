@@ -9,7 +9,6 @@ use App\Services\Forge\Requests\Sites\CreateSiteRequest;
 
 final class CreateSiteAction
 {
-
     public function __construct(
         protected readonly ForgeConnector $forge,
     ) {}
@@ -27,5 +26,4 @@ final class CreateSiteAction
 
         return $response->json();
     }
-
 }

@@ -10,9 +10,8 @@ use Illuminate\Support\Collection;
 
 final readonly class ListSitesAction
 {
-
     public function __construct(
-        protected ForgeConnector  $forge
+        protected ForgeConnector $forge
     ) {}
 
     public function handle(string|int $serverId): Collection
@@ -20,10 +19,9 @@ final readonly class ListSitesAction
 
         $response = $this->forge->send(new GetSitesRequest($serverId));
 
-        $sites = $response->json('sites');;
+        $sites = $response->json('sites');
 
         return collect($sites);
 
     }
-
 }

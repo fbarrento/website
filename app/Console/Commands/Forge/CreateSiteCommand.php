@@ -28,23 +28,19 @@ class CreateSiteCommand extends Command
     public function handle(ForgeConnector $forge): void
     {
 
-
-        $content = file_get_contents(base_path('/infrastructure/'. $this->option('environment').'.json'));
+        $content = file_get_contents(base_path('/infrastructure/'.$this->option('environment').'.json'));
         $deploymentData = json_decode($content, true);
 
         $siteData = $deploymentData['site'];
-        $server =  $deploymentData['serverId'];
+        $server = $deploymentData['serverId'];
 
         $request = new CreateSiteRequest($server);
         $request->body()
             ->set($siteData);
 
-
         $response = $forge->send($request);
 
         dd($response->json());
-
-
 
     }
 }

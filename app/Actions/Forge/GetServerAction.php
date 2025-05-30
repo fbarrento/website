@@ -9,7 +9,6 @@ use App\Services\Forge\Requests\Servers\GetServerRequest;
 
 final class GetServerAction
 {
-
     public function __construct(
         protected readonly ForgeConnector $forge
     ) {}
@@ -20,6 +19,4 @@ final class GetServerAction
 
         return $response->json('server');
     }
-
-
 }

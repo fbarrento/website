@@ -4,6 +4,7 @@ namespace App\Console\Commands\Forge;
 
 use App\Actions\Forge\CreateGitProjectAction;
 use Illuminate\Console\Command;
+
 use function base_path;
 use function file_get_contents;
 use function json_decode;
@@ -29,17 +30,16 @@ class CreateGitProjectCommand extends Command
      */
     public function handle(CreateGitProjectAction $createGitProjectAction)
     {
-        $content = file_get_contents(base_path('/infrastructure/'. $this->option('environment').'.json'));
+        $content = file_get_contents(base_path('/infrastructure/'.$this->option('environment').'.json'));
         $deploymentData = json_decode($content, true);
 
         $gitData = $deploymentData['git'];
-        $serverId =  $deploymentData['serverId'];
+        $serverId = $deploymentData['serverId'];
         $siteId = $deploymentData['siteId'];
 
-
         $git = $createGitProjectAction->handle(
-            serverId:  $serverId,
-            siteId:  $siteId,
+            serverId: $serverId,
+            siteId: $siteId,
             payload: $gitData
         );
 

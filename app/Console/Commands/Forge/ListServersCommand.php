@@ -3,8 +3,6 @@
 namespace App\Console\Commands\Forge;
 
 use App\Actions\Forge\ListServersAction;
-use App\Services\Forge\ForgeConnector;
-use App\Services\Forge\Requests\Servers\GetServersRequest;
 use Illuminate\Console\Command;
 
 class ListServersCommand extends Command
@@ -36,11 +34,10 @@ class ListServersCommand extends Command
             rows: $servers->select('id', 'name', 'type', 'is_ready')->toArray()
         );
 
-
     }
 
     private function list(array $servers): array
     {
-        return  [];
+        return [];
     }
 }

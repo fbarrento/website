@@ -9,7 +9,6 @@ use Saloon\Traits\Body\HasJsonBody;
 
 class CreateSiteRequest extends Request implements HasBody
 {
-
     use HasJsonBody;
 
     public function __construct(protected readonly string|int $serverId) {}

@@ -7,8 +7,8 @@ use Saloon\Http\Request;
 
 class GetServersRequest extends Request
 {
-
     protected Method $method = Method::GET;
+
     public function resolveEndpoint(): string
     {
         return '/servers';

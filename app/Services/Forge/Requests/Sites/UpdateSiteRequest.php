@@ -11,7 +11,6 @@ use Saloon\Traits\Body\HasJsonBody;
 
 final class UpdateSiteRequest extends Request implements HasBody
 {
-
     use HasJsonBody;
 
     public function __construct(

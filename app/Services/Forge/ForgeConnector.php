@@ -2,18 +2,14 @@
 
 namespace App\Services\Forge;
 
-use Illuminate\Config\Repository;
 use Saloon\Contracts\Authenticator;
 use Saloon\Http\Auth\TokenAuthenticator;
 use Saloon\Http\Connector;
+
 use function config;
 
 class ForgeConnector extends Connector
 {
-
-
-
-
     public function resolveBaseUrl(): string
     {
         return config()->string('services.forge.base_url');

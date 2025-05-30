@@ -9,7 +9,6 @@ use App\Services\Forge\Requests\Sites\UpdateSiteRequest;
 
 final class UpdateSiteAction
 {
-
     public function __construct(
         protected readonly ForgeConnector $forge
     ) {}
@@ -29,6 +28,4 @@ final class UpdateSiteAction
         return $response->json('site');
 
     }
-
-
 }

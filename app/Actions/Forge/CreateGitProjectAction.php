@@ -9,7 +9,6 @@ use App\Services\Forge\Requests\GitProjects\CreateGitProjectRequest;
 
 final readonly class CreateGitProjectAction
 {
-
     public function __construct(
         protected ForgeConnector $forge,
     ) {}
@@ -26,8 +25,8 @@ final readonly class CreateGitProjectAction
             ->set($payload);
 
         $response = $this->forge->send($request);
+
         return $response->json();
 
     }
-
 }
