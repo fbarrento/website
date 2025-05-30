@@ -71,5 +71,5 @@ jobs:
           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -f docker/php/Dockerfile .
           # Push both images to ECR
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-          docker tag $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG $ECR_REGISTRY/$ECR_REPOSITORY:latest
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:latest -f docker/php/Dockerfile .
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:latest
