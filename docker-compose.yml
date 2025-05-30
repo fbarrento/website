@@ -1,0 +1,48 @@
+x-laravel-app: &laravel-base
+    build:
+        context: .
+        dockerfile: ./docker/php/Dockerfile
+        target: development
+        args:
+            # 501 and 20 are the defaults on macOS. Run `./run compose:build-with-ids`
+            # to build with the current user and group IDs.
+            USER_ID: ${USER_ID:-501}
+            GROUP_ID: ${GROUP_ID:-20}
+    environment:
+        SSL_MODE: "off"
+        AUTORUN_LARAVEL_STORAGE_LINK: "true"
+        AUTORUN_LARAVEL_MIGRATION: "false"
+    networks:
+        - web
+    extra_hosts:
+        - "host.docker.internal:host-gateway"
+    volumes:
+        - ./:/var/www/html
+
+services:
+    php:
+        <<: *laravel-base
+        ports:
+            -  "${APP_PORT:-8000}:8080"
+            - '${VITE_PORT:-5173}:${VITE_PORT:-5173}'
+    queue:
+        <<: *laravel-base
+        command: ["php", "/var/www/html/artisan", "queue:listen"]
+        stop_signal: SIGTERM
+        healthcheck:
+            test: ["CMD", "healthcheck-queue"]
+            start_period: 10s
+
+    scheduler:
+        <<: *laravel-base
+        command: [ "php", "/var/www/html/artisan", "schedule:work" ]
+        stop_signal: SIGTERM
+        healthcheck:
+            test: [ "CMD", "healthcheck-schedule" ]
+            start_period: 10s
+
+
+networks:
+    web:
+        driver: bridge
+
