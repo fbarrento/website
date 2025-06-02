@@ -60,8 +60,11 @@ RUN rm -rf node_modules
 
 FROM base AS production
 USER root
+COPY --chmod=755 ./docker/php/entrypoint.d /etc/entrypoint.d
+RUN ls -la /etc/entrypoint.d
 
 COPY --chown=www-data:www-data --from=build_frontend /var/www/html /var/www/html
 
 # Drop back to our unprivileged user
+WORKDIR /var/www/html
 USER www-data
