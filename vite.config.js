@@ -4,6 +4,8 @@ import { defineConfig } from 'vite'
 import { watchAndRun } from 'vite-plugin-watch-and-run'
 import tailwindcss from '@tailwindcss/vite'
 
+const host = 'barrento.test'
+
 export default defineConfig({
     plugins: [
         tailwindcss(),
@@ -14,6 +16,7 @@ export default defineConfig({
                 'resources/js/app.js',
             ],
             refresh: true,
+            detectTls: host,
         }),
         watchAndRun([
             {
@@ -25,4 +28,9 @@ export default defineConfig({
             },
         ]),
     ],
+    server: {
+        host,
+        hmr: { host },
+    },
 })
+

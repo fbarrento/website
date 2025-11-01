@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Prezet\Prezet\Data\DocumentData;
 use Prezet\Prezet\Models\Document;
+use Prezet\Prezet\Prezet;
 
 class IndexController
 {
@@ -14,6 +15,21 @@ class IndexController
         $category = $request->input('category');
         $tag = $request->input('tag');
         $author = $request->input('author');
+
+        // Load the about block
+        $aboutBlock = app(Document::class)::query()
+            ->where('content_type', 'block')
+            ->where('slug', 'pages/about')
+            ->where('draft', false)
+            ->first();
+
+        $aboutBlockData = null;
+        if ($aboutBlock) {
+            $md = Prezet::getMarkdown($aboutBlock->filepath);
+            $html = Prezet::parseMarkdown($md)->getContent();
+            $aboutBlockData = Prezet::getDocumentDataFromFile($aboutBlock->filepath);
+            $aboutBlockData->content = $html;
+        }
 
         $query = app(Document::class)::query()
             ->where('content_type', 'article')
@@ -52,6 +68,7 @@ class IndexController
             'currentCategory' => $request->query('category'),
             'currentAuthor' => $currentAuthor,
             'postsByYear' => $postsByYear,
+            'aboutPage' => $aboutBlockData,
         ]);
     }
 }

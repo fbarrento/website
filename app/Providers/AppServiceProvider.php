@@ -2,8 +2,10 @@
 
 namespace App\Providers;
 
+use App\Data\ExtendedFrontmatterData;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\ServiceProvider;
+use Prezet\Prezet\Data\FrontmatterData;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -12,7 +14,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        $this->app->bind(
+            FrontmatterData::class,
+            ExtendedFrontmatterData::class
+        );
     }
 
     /**
@@ -25,9 +30,6 @@ class AppServiceProvider extends ServiceProvider
 
     protected function configureHttp(): void
     {
-        // Force HTTPS in production
-        if ($this->app->environment('production')) {
-            URL::forceScheme('https');
-        }
+        URL::forceScheme('https');
     }
 }
