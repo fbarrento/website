@@ -134,6 +134,13 @@ return [
 
     // https://schema.org/author
     'authors' => [
+        'francisco' => [
+            '@type' => 'Person',
+            'name' => 'Francisco Barrento',
+            'url' => 'https://github.com/fbarrento',
+            'image' => '/prezet/img/francisco.png',
+            'bio' => 'Francisco is a Laravel developer focusing on frontend tooling and testing practices. He enjoys exploring Blade, Vite, and ensuring application stability through robust testing.',
+        ],
         'bob' => [
             '@type' => 'Person',
             'name' => 'Bob Author',
@@ -159,8 +166,8 @@ return [
     // https://schema.org/publisher
     'publisher' => [
         '@type' => 'Organization',
-        'name' => 'Prezet',
-        'url' => 'https://prezet.com',
+        'name' => 'Francisco Barrento',
+        'url' => 'https://barrento.dev',
         'logo' => 'https://prezet.com/favicon.svg',
         'image' => 'https://prezet.com/ogimage.png',
     ],
