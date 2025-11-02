@@ -72,12 +72,6 @@
             >
             </div>
 
-            <div class="col-span-12 lg:hidden">
-                <div
-                    class="h-px w-full border-0 bg-[#e3e3e0] dark:bg-[#3E3E3A]"
-                ></div>
-            </div>
-
             {{-- Main Content --}}
             <div
                 class="col-span-12 lg:col-span-9 xl:col-span-8 xl:col-start-2 2xl:col-span-7 2xl:col-start-2"

@@ -11,15 +11,8 @@
 
     <link
         rel="icon"
-        href="/favicon.ico"
-        type="image/x-icon"
-        sizes="16x16"
-    />
-    <link
-        rel="icon"
-        href="/favicon.svg"
-        type="image/svg+xml"
-        sizes="any"
+        href="/prezet/img/francisco.webp"
+        type="image/webp"
     />
     <link rel="alternate" type="application/atom+xml" title="News" href="/feed">
 

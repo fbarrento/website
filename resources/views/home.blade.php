@@ -1,7 +1,8 @@
+@php use Illuminate\Support\Collection;use Prezet\Prezet\Data\DocumentData; @endphp
 @php
     /* @var array $author */
-    /* @var \Prezet\Prezet\Data\DocumentData|null $aboutPage */
-    /* @var \Illuminate\Support\Collection<int,\Prezet\Prezet\Data\DocumentData> $latestPosts */
+    /* @var DocumentData|null $aboutPage */
+    /* @var Collection<int,DocumentData> $latestPosts */
 @endphp
 
 <x-prezet.template>
@@ -14,7 +15,8 @@
     <main class="max-w-6xl mx-auto py-12 sm:py-16 lg:py-20">
         <div class="flex flex-col space-y-16">
             <section>
-                <div class="prose prose-green prose-h1:font-light prose-p:mb-4 prose-h1:text-3xl dark:prose-invert max-w-none">
+                <div
+                    class="prose prose-green prose-h1:font-light prose-p:mb-4 prose-h1:text-3xl dark:prose-invert max-w-none">
                     {!! $aboutPage->content !!}
                 </div>
             </section>
@@ -36,7 +38,8 @@
                 @if ($latestPosts->count() > 0)
                     <div class="space-y-8">
                         @foreach ($latestPosts as $post)
-                            <article class="border-b border-[#e3e3e0] dark:border-[#3E3E3A] pb-8 last:border-0 last:pb-0">
+                            <article
+                                class="border-b border-[#e3e3e0] dark:border-[#3E3E3A] pb-8 last:border-0 last:pb-0">
                                 <div class="flex flex-col sm:flex-row sm:items-start gap-4">
                                     <div class="flex-1">
                                         @if ($post->category)

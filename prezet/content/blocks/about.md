@@ -1,14 +1,15 @@
 ---
 title: About Me
-excerpt: Learn more about Francisco Barrento
+excerpt: Francisco Barrento - Staff Software Engineer and Tech Lead. Building Laravel applications, creating open-source PHP SDKs, and exploring AI in development workflows.
 date: 2025-11-01
 contentType: block
 draft: false
 author: francisco
-github: https://github.com/fbarrento
-linkedin: https://www.linkedin.com/in/francisco-barrento/
-x: https://x.com/fbarrento
-pinkary: https://pinkary.com/@fbarrento
+github: "https://github.com/fbarrento"
+linkedin: "https://www.linkedin.com/in/francisco-barrento/"
+x: "https://x.com/fbarrento"
+pinkary: "https://pinkary.com/@fbarrento"
+image: /img/ogimages/blocks-about.webp
 ---
 
 About Me

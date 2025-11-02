@@ -2,15 +2,14 @@
 title: "Stop Writing Arrays in Your Tests: Laravel Factories for Data Objects"
 date: 2025-11-02
 excerpt: "Building the Laravel Orrto SDK taught me something: test setup shouldn't be harder than the actual testing. When you are integrating with an API that expects complex, nested payloads, raw arrays turn your tests into unreadable nightmares fast."
-image: /prezet/img/ogimages/laravel-vite.webp
+image: /img/ogimages/stop-writing-arrays-in-your-tests-laravel-factories-for-data-objects.webp
 author: francisco
-tags:
-  - factories
-  - data-objects
-  - tests
+tags: [factories, data-objects, tests]
 ---
-Building the [Laravel Orrto SDK](https://github.com/phpdevkits/ortto-sdk) taught me something: test setup shouldn't be harder than the actual testing. When you are integrating with an API that expects complex, nested payloads, raw arrays turn your tests into unreadable nightmares fast.
 
+![](stop-writing-arrays-in-your-tests-laravel-factories-for-data-objects.webp)
+
+Building the [Laravel Orrto SDK](https://github.com/phpdevkits/ortto-sdk) taught me something: test setup shouldn't be harder than the actual testing. When you are integrating with an API that expects complex, nested payloads, raw arrays turn your tests into unreadable nightmares fast.
 
 Here's what I mean. The Ortto API's person merge endpoint expects payloads like this:
 
@@ -73,156 +72,121 @@ This is what Laravel's factory pattern does for Eloquent models, but we can hija
 First, we need a Data Object. Mine implements Laravel's `Arrayable` interface because our HTTP client (Saloon) transforms arrays into JSON payloads for the API:
 
 ```php
-<?php  
-  
-declare(strict_types=1);  
-  
-namespace PhpDevKits\Ortto\Data;  
-  
-use Carbon\CarbonImmutable;  
-use Illuminate\Contracts\Support\Arrayable;  
-use Illuminate\Support\Collection;  
-use Tests\Factories\PersonFactory;  
-  
-/**  
- * @implements Arrayable<string, mixed>  
- */  
-class PersonData implements Arrayable  
-{  
-    public function __construct(  
-        public string|int $id,  
-        public string $email,  
-        public ?string $firstName = null,  
-        public ?string $lastName = null,  
-        public ?string $name = null,  
-        public ?string $city = null,  
-        public ?string $country = null,  
-        public ?string $postalCode = null,  
-        public ?CarbonImmutable $birthdate = null,  
-        public bool $emailPermission = false,  
-        public bool $smsPermission = false,  
-    ) {}  
-    /**  
-     * Create a new factory instance.     */    public static function factory(): PersonFactory  
-    {  
-        return PersonFactory::new();  
-    }  
-    /**  
-     * Get the instance as an array.     *     * @return array<string, mixed>  
-     */  
-    public function toArray(): array  
-    {  
-  
-        return [  
-            'fields' => [  
-                'str::ei' => (string) $this->id,  
-                'str::email' => $this->email,  
-                'str::first' => $this->firstName,  
-                'str::last' => $this->lastName,  
-                'str::name' => $this->name,  
-                'geo::city' => [  
-                    'name' => $this->city,  
-                ],                'geo::country' => [  
-                    'name' => $this->country,  
-                ],                'str::postal' => $this->postalCode,  
-                'dtz::b' => [  
-                    'year' => $this->birthdate?->year,  
-                    'month' => $this->birthdate?->month,  
-                    'day' => $this->birthdate?->day,  
-                    'timezone' => $this->birthdate?->getTimezone()->getName(),  
-                ],                'bol::p' => $this->emailPermission,  
-                'bol::sp' => $this->smsPermission,  
-            ]];    }  
-    /**  
-     * @param  array<int, PersonData>  $items  
-     * @return Collection<int, PersonData>  
-     */  
-    public function newCollection(array $items = []): Collection  
-    {  
-        return new Collection($items);  
-    }}
+class PersonData implements Arrayable
+{
+    public function __construct(
+        public string|int $id,
+        public string $email,
+        public ?string $firstName = null,
+        public ?string $lastName = null,
+        public ?string $name = null,
+        public ?string $city = null,
+        public ?string $country = null,
+        public ?string $postalCode = null,
+        public ?CarbonImmutable $birthdate = null,
+        public bool $emailPermission = false,
+        public bool $smsPermission = false,
+    ) {}
+
+    public static function factory(): PersonFactory
+    {
+        return PersonFactory::new();
+    }
+
+    public function toArray(): array
+    {
+        return [
+            'fields' => [
+                'str::ei' => (string) $this->id,
+                'str::email' => $this->email,
+                'str::first' => $this->firstName,
+                'str::last' => $this->lastName,
+                'str::name' => $this->name,
+                'geo::city' => [
+                    'name' => $this->city,
+                ],
+                'geo::country' => [
+                    'name' => $this->country,
+                ],
+                'str::postal' => $this->postalCode,
+                'dtz::b' => [
+                    'year' => $this->birthdate?->year,
+                    'month' => $this->birthdate?->month,
+                    'day' => $this->birthdate?->day,
+                    'timezone' => $this->birthdate?->getTimezone()->getName(),
+                ],
+                'bol::p' => $this->emailPermission,
+                'bol::sp' => $this->smsPermission,
+            ]
+        ];
+    }
+
+    public function newCollection(array $items = []): Collection
+    {
+        return new Collection($items);
+    }
 }
 ```
 
 Now for the factory. Laravel's `Illuminate\Database\Eloquent\Factories\Factory` class is built for Eloquent models, but it's generic enough to work with any class. We just need to extend it and tell it what to create:
 
 ```php
-<?php  
-  
-declare(strict_types=1);  
-  
-namespace Tests\Factories;  
-  
-use Carbon\CarbonImmutable;  
-use Illuminate\Database\Eloquent\Factories\Factory;  
-use Illuminate\Database\Eloquent\Model;  
-use Illuminate\Support\Collection;  
-use Illuminate\Support\Str;  
-use PhpDevKits\Ortto\Data\PersonData;  
-  
-use function fake;  
-  
-/**  
- * @extends Factory<PersonData>  
- */  
-final class PersonFactory extends Factory  
-{  
-    /**  
-     * The name of the factory's corresponding data object.    
-     *
-     * @var class-string<PersonData>  
-     */  
-    protected $model = PersonData::class;  
-    
-    private array $extraAttributes = [];  
-  
-    public function definition(): array  
-    {  
-        return [  
-            'id' => Str::uuid()->toString(),  
-            'email' => fake()->unique()->email(),  
-            'firstName' => fake()->firstName(),  
-            'lastName' => fake()->lastName(),  
-            'name' => fake()->name(),  
-            'city' => fake()->city(),  
-            'country' => fake()->country(),  
-            'postalCode' => fake()->postcode(),  
-            'birthdate' => CarbonImmutable::now(),  
-            'emailPermission' => fake()->boolean(),  
-            'smsPermission' => fake()->boolean(),  
-        ];    }  
-  
-	public function make($attributes = [], ?Model $parent = null): PersonData|Collection  
-	{  
-		$this->extraAttributes = $attributes;  
-		
-		if ($this->count === null) {  
-			return $this->makeInstance($parent);  
-		}  
-		$instances = [];  
-		
-		for ($i = 0; $i < $this->count; $i++) {  
-			$instances[] = $this->makeInstance($parent);  
-		}  
-		return collect($instances);  
-	}
-      
-	protected function makeInstance(?Model $parent = null): PersonData  
-	{  
-		$attributes = array_merge(  
-			$this->getRawAttributes($parent),  
-			$this->extraAttributes  
-		);  
-  
-		return new PersonData(...$attributes);  
-	}
-       
-	public function newModel(array $attributes = []): PersonData  
-	{  
-		$attributes = array_merge($this->definition(), $attributes);  
-  
-        return new PersonData(...$attributes);  
-    }}
+final class PersonFactory extends Factory
+{
+    protected $model = PersonData::class;
+
+    private array $extraAttributes = [];
+
+    public function definition(): array
+    {
+        return [
+            'id' => Str::uuid()->toString(),
+            'email' => fake()->unique()->email(),
+            'firstName' => fake()->firstName(),
+            'lastName' => fake()->lastName(),
+            'name' => fake()->name(),
+            'city' => fake()->city(),
+            'country' => fake()->country(),
+            'postalCode' => fake()->postcode(),
+            'birthdate' => CarbonImmutable::now(),
+            'emailPermission' => fake()->boolean(),
+            'smsPermission' => fake()->boolean(),
+        ];
+    }
+
+    public function make($attributes = [], ?Model $parent = null): PersonData|Collection
+    {
+        $this->extraAttributes = $attributes;
+
+        if ($this->count === null) {
+            return $this->makeInstance($parent);
+        }
+        $instances = [];
+
+        for ($i = 0; $i < $this->count; $i++) {
+            $instances[] = $this->makeInstance($parent);
+        }
+
+        return collect($instances);
+    }
+
+    protected function makeInstance(?Model $parent = null): PersonData
+    {
+        $attributes = array_merge(
+            $this->getRawAttributes($parent),
+            $this->extraAttributes
+        );
+
+        return new PersonData(...$attributes);
+    }
+
+    public function newModel(array $attributes = []): PersonData
+    {
+        $attributes = array_merge($this->definition(), $attributes);
+
+        return new PersonData(...$attributes);
+    }
+}
 ```
 
 The `definition()` method returns the default attributes. Faker gives us realistic, random data every time.
@@ -230,33 +194,33 @@ The `definition()` method returns the default attributes. Faker gives us realist
 But here's the crucial part: Laravel's factory expects Eloquent models, not Data Objects. We need to override `make()` to handle instantiation:
 
 ```php
-public function make($attributes = [], ?Model $parent = null): PersonData|Collection  
-{  
-	$this->extraAttributes = $attributes;  
-	
-	if ($this->count === null) {  
-		return $this->makeInstance($parent);  
-	}  
-	$instances = [];  
-	
-	for ($i = 0; $i < $this->count; $i++) {  
-		$instances[] = $this->makeInstance($parent);  
-	}  
-	return collect($instances);  
+public function make($attributes = [], ?Model $parent = null): PersonData|Collection
+{
+    $this->extraAttributes = $attributes;
+
+    if ($this->count === null) {
+        return $this->makeInstance($parent);
+    }
+    $instances = [];
+
+    for ($i = 0; $i < $this->count; $i++) {
+        $instances[] = $this->makeInstance($parent);
+    }
+    return collect($instances);
 }
 ```
 
 Instead of returning Eloquent models, this returns either a single `PersonData` or a `Collection` of them. The `makeInstance()` method handles the actual object creation:
 
 ```php
-protected function makeInstance(?Model $parent = null): PersonData  
-{  
-	$attributes = array_merge(  
-		$this->getRawAttributes($parent),  
-		$this->extraAttributes  
-	);  
+protected function makeInstance(?Model $parent = null): PersonData
+{
+    $attributes = array_merge(
+        $this->getRawAttributes($parent),
+        $this->extraAttributes
+    );
 
-	return new PersonData(...$attributes);  
+    return new PersonData(...$attributes);
 }
 ```
 
@@ -275,12 +239,6 @@ Laravel's factory calls this internally when it needs to create a fresh instance
 Now we wire up the factory to the Data Object:
 
 ```php
-namespace PhpDevKits\Ortto\Data;
-
-use Carbon\CarbonImmutable;
-use Illuminate\Contracts\Support\Arrayable;
-use Tests\Factories\PersonFactory;
-
 class PersonData implements Arrayable
 {
     // ... constructor and toArray() ...
@@ -289,15 +247,11 @@ class PersonData implements Arrayable
     {
         return PersonFactory::new();
     }
-    
-    /**  
-	* @param  array<int, PersonData>  $items  
-	* @return Collection<int, PersonData>  
-	*/  
-	public function newCollection(array $items = []): Collection 
-	{  
-		return collect($items);  
-	}
+
+    public function newCollection(array $items = []): Collection
+    {
+        return collect($items);
+    }
 }
 ```
 
@@ -314,23 +268,22 @@ it('can merge multiple people at once', function () {
     $people = PersonData::factory()->count(10)->make();
 
     $response = $this->ortto->send(
-	    new MergePopleRequest(
-		    people: $people->toArray(),
-		    mergeBy: ['str::email'],
-		    mergeStrategy: MergeStrategy::OverwriteExisting->value,
-		    finsStartegy: FindStrategy::All->value,
-	    )
+        new MergePopleRequest(
+            people: $people->toArray(),
+            mergeBy: ['str::email'],
+            mergeStrategy: MergeStrategy::OverwriteExisting->value,
+            finsStartegy: FindStrategy::All->value,
+        )
     );
 
-    expect($response->status())  
-	    ->toBe(200)  
-	    ->and($response->json())  
-	    ->toHaveKey('people')  
-	    ->and($response->json('people'))  
-	    ->toBeArray()  
-	    ->and($response->json('people'))  
-	    ->toHaveCount(54);
-    
+    expect($response->status())
+        ->toBe(200)
+        ->and($response->json())
+        ->toHaveKey('people')
+        ->and($response->json('people'))
+        ->toBeArray()
+        ->and($response->json('people'))
+        ->toHaveCount(54);
 });
 ```
 

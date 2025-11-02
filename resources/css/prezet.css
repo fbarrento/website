@@ -157,6 +157,14 @@
         @apply no-scrollbars m-0 rounded-xl border border-gray-200 text-sm leading-6;
     }
 
+    .phiki .line-number {
+        padding-right: 1.5em;
+    }
+
+    .prezet-image {
+        @apply rounded-md mb-20
+    }
+
     /*
 |--------------------------------------------------------------------------
 | Fonts

@@ -13,7 +13,7 @@
     @seo([
         'title' => 'Francisco Barrento',
         'description' =>
-            'Transform your markdown files into SEO-friendly blogs, articles, and documentation!',
+            'Laravel tutorials, PHP development tips, and testing best practices. Learn about Inertia, Pest, AI integration, and building maintainable applications.',
         'url' => route('prezet.index'),
     ])
 
