@@ -81,8 +81,10 @@ options: [],
     this.open = false;
 
     $nextTick(() => {
-      // Focus toggle button
-      $focus.focus($refs.elToggleButton);
+      // Focus toggle button if it exists
+      if ($refs.elToggleButton) {
+        $focus.focus($refs.elToggleButton);
+      }
     });
   },
 
@@ -182,37 +184,41 @@ options: [],
     x-on:keydown.meta.k.prevent.document="openCommandPalette()"
 >
     <!-- Toggle Button -->
-    <button
-        x-ref="elToggleButton"
-        x-on:click="openCommandPalette()"
-        type="button"
-        class="group inline-flex items-center justify-center gap-2 rounded-lg border-zinc-200 bg-white p-1.5 text-sm/6 font-medium text-zinc-800 hover:border-zinc-300 hover:text-zinc-900 hover:shadow-xs focus:ring-zinc-300/25 active:border-zinc-200 active:shadow-none lg:min-w-64 lg:border lg:px-3 dark:border-zinc-700 dark:bg-transparent dark:text-zinc-300 dark:hover:border-zinc-600 dark:hover:text-zinc-200 dark:focus:ring-zinc-600/50 dark:active:border-zinc-700"
-    >
-        <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 20 20"
-            fill="currentColor"
-            data-slot="icon"
-            class="hi-mini hi-magnifying-glass inline-block size-6 opacity-60 group-hover:text-zinc-600 group-hover:opacity-100 lg:size-5 dark:group-hover:text-zinc-400"
+    @if(isset($trigger))
+        {{ $trigger }}
+    @else
+        <button
+            x-ref="elToggleButton"
+            x-on:click="openCommandPalette()"
+            type="button"
+            class="group inline-flex items-center justify-center gap-2 rounded-lg border-zinc-200 bg-white p-1.5 text-sm/6 font-medium text-zinc-800 hover:border-zinc-300 hover:text-zinc-900 hover:shadow-2xs focus:ring-zinc-300/25 active:border-zinc-200 active:shadow-none dark:border-zinc-700 dark:bg-transparent dark:text-zinc-300 dark:hover:border-zinc-600 dark:hover:text-zinc-200 dark:focus:ring-zinc-600/50 dark:active:border-zinc-700 lg:min-w-64 lg:border lg:px-3"
         >
-            <path
-                fill-rule="evenodd"
-                d="M9 3.5a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11ZM2 9a7 7 0 1 1 12.452 4.391l3.328 3.329a.75.75 0 1 1-1.06 1.06l-3.329-3.328A7 7 0 0 1 2 9Z"
-                clip-rule="evenodd"
-            />
-        </svg>
-        <span
-            class="hidden grow text-start opacity-60 group-hover:opacity-100 lg:block"
-        >
-            Search..
-        </span>
-        <span
-            class="hidden flex-none text-xs font-semibold opacity-75 lg:block"
-        >
-            <span x-text="modifierKey" class="opacity-75"></span>
-            <span>K</span>
-        </span>
-    </button>
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                data-slot="icon"
+                class="hi-mini hi-magnifying-glass inline-block size-6 opacity-60 group-hover:text-zinc-600 group-hover:opacity-100 dark:group-hover:text-zinc-400 lg:size-5"
+            >
+                <path
+                    fill-rule="evenodd"
+                    d="M9 3.5a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11ZM2 9a7 7 0 1 1 12.452 4.391l3.328 3.329a.75.75 0 1 1-1.06 1.06l-3.329-3.328A7 7 0 0 1 2 9Z"
+                    clip-rule="evenodd"
+                />
+            </svg>
+            <span
+                class="hidden grow text-start opacity-60 group-hover:opacity-100 lg:block"
+            >
+                Search..
+            </span>
+            <span
+                class="hidden flex-none text-xs font-semibold opacity-75 lg:block"
+            >
+                <span x-text="modifierKey" class="opacity-75"></span>
+                <span>K</span>
+            </span>
+        </button>
+    @endif
     <!-- END Toggle Button -->
 
     <!-- Backdrop -->
@@ -228,7 +234,7 @@ options: [],
         x-transition:leave-end="opacity-0"
         x-bind:aria-hidden="!open"
         x-on:keydown.esc.prevent.stop="closeCommandPalette()"
-        class="fixed inset-0 z-90 overflow-x-hidden overflow-y-auto bg-zinc-900/75 p-4 backdrop-blur-xs will-change-auto md:py-8 lg:px-8 lg:py-16"
+        class="z-90 fixed inset-0 overflow-y-auto overflow-x-hidden bg-zinc-900/75 p-4 backdrop-blur-xs will-change-auto md:py-8 lg:px-8 lg:py-16"
         tabindex="-1"
         role="dialog"
         aria-modal="true"
@@ -281,7 +287,7 @@ options: [],
                         x-on:keydown.page-up.prevent.stop="navigateResults('first')"
                         x-on:keydown.page-down.prevent.stop="navigateResults('last')"
                         type="text"
-                        class="w-full border-none bg-transparent py-3 text-sm placeholder:text-zinc-500 focus:ring-0 focus:outline-hidden dark:placeholder:text-zinc-400"
+                        class="w-full border-none bg-transparent py-3 text-sm placeholder:text-zinc-500 focus:outline-hidden focus:ring-0 dark:placeholder:text-zinc-400"
                         placeholder="Search..."
                         tabindex="0"
                         role="combobox"

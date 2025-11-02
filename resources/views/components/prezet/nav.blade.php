@@ -15,11 +15,11 @@
                                 @class([
                                     'before:-trangray-y-1/2 block w-full pl-3.5 before:pointer-events-none before:absolute before:top-1/2 before:-left-1 before:h-1.5 before:w-1.5 before:rounded-full',
                                     'text-primary-500 before:bg-primary-500 font-semibold' =>
-                                        url()->current() === route('prezet.show', ['slug' => $link['slug']]),
+                                        url()->current() === route('blog.show', ['slug' => $link['slug']]),
                                     'text-gray-500 before:hidden before:bg-gray-300 hover:text-gray-600 hover:before:block' =>
-                                        url()->current() !== route('prezet.show', ['slug' => $link['slug']]),
+                                        url()->current() !== route('blog.show', ['slug' => $link['slug']]),
                                 ])
-                                href="{{ route('prezet.show', ['slug' => $link['slug']]) }}"
+                                href="{{ route('blog.show', ['slug' => $link['slug']]) }}"
                             >
                                 {{ $link['title'] }}
                             </a>

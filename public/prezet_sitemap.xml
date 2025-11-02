@@ -1,78 +1,78 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
     <url>
-        <loc>https://barrento.test/testing</loc>
+        <loc>https://barrento.test/blog/blocks/about</loc>
+        <lastmod>2025-11-01T23:16:07+00:00</lastmod>
+
+            </url>
+    <url>
+        <loc>https://barrento.test/blog/testing</loc>
         <lastmod>2025-11-01T18:32:27+00:00</lastmod>
 
             </url>
     <url>
-        <loc>https://barrento.test/testing/laravel-database-testing</loc>
+        <loc>https://barrento.test/blog/testing/laravel-database-testing</loc>
         <lastmod>2025-11-01T18:32:27+00:00</lastmod>
 
             </url>
     <url>
-        <loc>https://barrento.test/testing/laravel-fakes</loc>
+        <loc>https://barrento.test/blog/testing/laravel-fakes</loc>
         <lastmod>2025-11-01T18:32:27+00:00</lastmod>
 
             </url>
     <url>
-        <loc>https://barrento.test/testing/laravel-mocking</loc>
+        <loc>https://barrento.test/blog/testing/laravel-mocking</loc>
         <lastmod>2025-11-01T18:32:27+00:00</lastmod>
 
             </url>
     <url>
-        <loc>https://barrento.test/testing/laravel-testing</loc>
+        <loc>https://barrento.test/blog/testing/laravel-testing</loc>
         <lastmod>2025-11-01T18:32:27+00:00</lastmod>
 
             </url>
     <url>
-        <loc>https://barrento.test/laravel-vite</loc>
+        <loc>https://barrento.test/blog/laravel-vite</loc>
         <lastmod>2025-11-01T18:32:27+00:00</lastmod>
 
             </url>
     <url>
-        <loc>https://barrento.test/laravel-validation</loc>
+        <loc>https://barrento.test/blog/laravel-validation</loc>
         <lastmod>2025-11-01T18:32:27+00:00</lastmod>
 
             </url>
     <url>
-        <loc>https://barrento.test/laravel-queues</loc>
+        <loc>https://barrento.test/blog/laravel-queues</loc>
         <lastmod>2025-11-01T18:32:27+00:00</lastmod>
 
             </url>
     <url>
-        <loc>https://barrento.test/laravel-routing</loc>
+        <loc>https://barrento.test/blog/laravel-routing</loc>
         <lastmod>2025-11-01T18:32:27+00:00</lastmod>
 
             </url>
     <url>
-        <loc>https://barrento.test/laravel-artisan</loc>
+        <loc>https://barrento.test/blog/laravel-artisan</loc>
         <lastmod>2025-11-01T18:32:27+00:00</lastmod>
 
             </url>
     <url>
-        <loc>https://barrento.test/laravel-middleware</loc>
+        <loc>https://barrento.test/blog/laravel-middleware</loc>
         <lastmod>2025-11-01T18:32:27+00:00</lastmod>
 
             </url>
     <url>
-        <loc>https://barrento.test/eloquent-basics</loc>
+        <loc>https://barrento.test/blog/eloquent-basics</loc>
         <lastmod>2025-11-01T18:32:27+00:00</lastmod>
 
             </url>
     <url>
-        <loc>https://barrento.test/blade-templating</loc>
+        <loc>https://barrento.test/blog/blade-templating</loc>
         <lastmod>2025-11-01T18:32:27+00:00</lastmod>
 
             </url>
     <url>
-        <loc>https://barrento.test/laravel-events</loc>
+        <loc>https://barrento.test/blog/laravel-events</loc>
         <lastmod>2025-11-01T18:32:27+00:00</lastmod>
-
-            </url>
-    <url>
-        <loc>https://barrento.test/pages/about</loc>
-        <lastmod>2025-11-01T21:54:24+00:00</lastmod>
 
             </url>
 </urlset>
