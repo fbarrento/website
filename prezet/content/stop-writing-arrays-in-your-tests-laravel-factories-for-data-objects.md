@@ -2,7 +2,7 @@
 title: "Stop Writing Arrays in Your Tests: Laravel Factories for Data Objects"
 date: 2025-11-02
 excerpt: "Building the Laravel Orrto SDK taught me something: test setup shouldn't be harder than the actual testing. When you are integrating with an API that expects complex, nested payloads, raw arrays turn your tests into unreadable nightmares fast."
-image: /img/ogimages/stop-writing-arrays-in-your-tests-laravel-factories-for-data-objects.webp
+image: /images/ogimages/stop-writing-arrays-in-your-tests-laravel-factories-for-data-objects.webp
 author: francisco
 tags: [factories, data-objects, tests]
 ---
@@ -400,6 +400,9 @@ That's calling `toArray()` on each `PersonData` object in the collection, then c
 
 This pattern removes so much friction from testing that I kept finding ways to extend it. In the next article, we'll extract a `DataFactory` trait to clean up the repetitive factory setup even further. Then we'll tackle something trickier: managing relationships between Data Objects using factories.
 
-The Laravel Ortto SDK uses this pattern throughout its test suite. You can see the full implementation, including more complex factory scenarios and relationship handling, in the [GitHub repository](https://github.com/phpdevkits/ortto-sdk).
+The Laravel Ortto SDK uses this pattern throughout its test suite. Check out the complete implementations:
+* [PersonData](https://github.com/phpdevkits/ortto-sdk/blob/main/src/Data/PersonData.php) - The Data Object with Arrayable interface
+* [PersonFactory](https://github.com/phpdevkits/ortto-sdk/blob/main/tests/Factories/PersonFactory.php) - The factory with attribute mapping
+* [MergePeopleTest](https://github.com/phpdevkits/ortto-sdk/blob/main/tests/Unit/Person/MergePeopleTest.php) - Real tests using the factory pattern
 
 Stop writing arrays. Start using factories.
