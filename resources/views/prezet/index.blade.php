@@ -17,11 +17,11 @@
         'url' => route('prezet.index'),
     ])
 
-    <div class="mx-auto max-w-4xl px-6 py-12 sm:py-16">
+    <div class="mx-auto max-w-6xl py-12 sm:py-16 lg:py-20">
         <h1
             class="text-3xl !leading-snug font-bold sm:text-4xl lg:text-5xl lg:!leading-tight dark:text-white"
         >
-            All Posts
+            Blog
         </h1>
 
         <div class="mb-6 justify-between sm:flex md:mb-8">

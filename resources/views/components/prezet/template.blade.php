@@ -59,12 +59,13 @@
             }
         })()
     </script>
+    <title></title>
 </head>
 <body class="dark:bg-background-dark font-sans antialiased overscroll-none">
 <div class="min-h-screen">
     <x-prezet.alpine>
         <div
-            class="relative text-gray-500 antialiased dark:text-gray-400"
+            class="relative text-gray-800 antialiased dark:text-gray-400"
         >
 
             <x-prezet.alpine>
@@ -74,12 +75,12 @@
                 <header
                     class="bg-background-light/95 dark:bg-background-dark/95 supports-[backdrop-filter]:bg-background-light/75 dark:supports-[backdrop-filter]:bg-background-dark/75 sticky top-0 z-30 backdrop-blur"
                 >
-                    <div class="max-w-8xl mx-auto px-4 xl:px-4">
+                    <div class="max-w-6xl mx-auto px-6 lg:px-4 xl:px-4">
                         <x-prezet.header :document="[]" />
                     </div>
                 </header>
 
-                <main class="max-w-8xl relative mx-auto px-4 xl:px-4">
+                <main class="max-w-6xl relative mx-auto px-6 lg:px-4 xl:px-4">
                     {{ $slot }}
                 </main>
 

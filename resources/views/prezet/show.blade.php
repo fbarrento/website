@@ -22,7 +22,7 @@
     @endpush
 
     <x-prezet.alpine>
-        <div class="mx-auto w-full max-w-4xl px-6 py-20">
+        <div class="mx-auto w-full max-w-4xl py-12 sm:py-16 lg:py-20">
             <div class="mb-10">
                 <li class="flex items-center dark:text-white">
                     @if($document->category)

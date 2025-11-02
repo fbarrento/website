@@ -11,18 +11,13 @@
         'url' => route('home'),
     ])
 
-    <main class="flex-1 px-6 py-12 sm:py-16">
-        <div class="max-w-4xl mx-auto">
-            {{-- About Content Section --}}
-            @if ($aboutPage)
-                <section class="mb-16 sm:mb-20">
-                    <div class="flex flex-col">
-                        <div class="prose prose-zinc prose-h1:font-light prose-p:my-4 prose-h1:text-3xl dark:prose-invert max-w-none">
-                            {!! $aboutPage->content !!}
-                        </div>
-                    </div>
-                </section>
-            @endif
+    <main class="max-w-6xl mx-auto py-12 sm:py-16 lg:py-20">
+        <div class="flex flex-col space-y-16">
+            <section>
+                <div class="prose prose-green prose-h1:font-light prose-p:mb-4 prose-h1:text-3xl dark:prose-invert max-w-none">
+                    {!! $aboutPage->content !!}
+                </div>
+            </section>
 
             {{-- Latest Posts Section --}}
             <section>
