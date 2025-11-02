@@ -1,0 +1,226 @@
+{
+  "main": {
+    "id": "1455df63d629ba8a",
+    "type": "split",
+    "children": [
+      {
+        "id": "2c27e6669a2e3652",
+        "type": "tabs",
+        "dimension": 59.200507614213194,
+        "children": [
+          {
+            "id": "ec198234e55df484",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "content/laravel-data-factories-1.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "laravel-data-factories-1"
+            }
+          }
+        ]
+      },
+      {
+        "id": "e6e5a7f37214e1b0",
+        "type": "tabs",
+        "dimension": 40.7994923857868,
+        "children": [
+          {
+            "id": "aa7d7002643537da",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "content/laravel-data-factories-1.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "laravel-data-factories-1"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "bbf467e2c0a971ba",
+    "type": "split",
+    "children": [
+      {
+        "id": "35abee80fe71e533",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "6a3d647515a7cf8c",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "c3aa1f54d7b772f8",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "746514813d2c79d1",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "8ee89da33c4ec4e2",
+    "type": "split",
+    "children": [
+      {
+        "id": "7feb0f5842f9e78d",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "1b7bd142d5dc9edd",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "content/laravel-data-factories-1.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for laravel-data-factories-1"
+            }
+          },
+          {
+            "id": "1670fc05575bd4e7",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Welcome.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Welcome"
+            }
+          },
+          {
+            "id": "37bd65378b1da8b2",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "f2e82f8b5cf9988b",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Welcome.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Welcome"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "ec198234e55df484",
+  "lastOpenFiles": [
+    "backup/laravel-vite.md",
+    "backup/laravel-validation.md",
+    "backup/laravel-routing.md",
+    "backup/laravel-queues.md",
+    "backup/laravel-middleware.md",
+    "backup/laravel-events.md",
+    "backup/eloquent-basics.md",
+    "backup/laravel-artisan.md",
+    "backup/blade-templating.md",
+    "backup/testing/laravel-testing.md",
+    "backup/testing/laravel-mocking.md",
+    "backup/testing/laravel-fakes.md",
+    "backup/testing/laravel-database-testing.md",
+    "backup/testing/index.md",
+    "backup/testing",
+    "backup",
+    "backend",
+    "content/laravel-events.md",
+    "content/laravel-data-factories-1.md",
+    "content/laravel-artisan.md",
+    "Untitled.md",
+    "content/blocks/about.md",
+    "content/laravel-vite.md",
+    "content/laravel-validation.md",
+    "content/laravel-routing.md",
+    "content/laravel-queues.md",
+    "content/laravel-middleware.md",
+    "content/eloquent-basics.md",
+    "content/blade-templating.md"
+  ]
+}
