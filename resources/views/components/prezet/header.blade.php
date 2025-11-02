@@ -12,7 +12,7 @@
                             <span
                                 class="font-semibold text-gray-900 dark:text-white"
                             >
-                                {{ strtolower(config('app.name')) }}
+                                {{ config('app.name') }}
                             </span>
                     </div>
                 </a>

@@ -26,7 +26,7 @@
 
         <div class="mb-6 justify-between sm:flex md:mb-8">
             <p class="text-lg leading-7 text-gray-600 dark:text-gray-400">
-                A blog created with Laravel and Tailwind.css
+                All latest Barrento's posts in one place.
             </p>
             <div class="mt-4 block sm:mt-0">
                 @if ($currentTag)
