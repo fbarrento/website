@@ -11,7 +11,7 @@
 
     <link
         rel="icon"
-        href="/prezet/img/francisco.webp"
+        href="/storage/images/francisco.webp"
         type="image/webp"
     />
     <link rel="alternate" type="application/atom+xml" title="News" href="/feed">

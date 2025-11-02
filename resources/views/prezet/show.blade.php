@@ -78,7 +78,7 @@
             >
                 {{-- prose-pre:-mx-8 prose-pre:rounded-none --}}
                 <article
-                    class="prose-pre:rounded-xl prose-headings:font-display prose prose-zinc prose-a:border-b prose-a:border-dashed prose-a:border-black/30 prose-a:font-semibold prose-a:no-underline prose-a:hover:border-solid prose-img:rounded-sm dark:prose-invert max-w-none"
+                    class="prose-pre:rounded-xl prose-headings:font-display prose prose-green prose-a:border-b prose-a:border-dashed prose-a:border-black/30 prose-a:font-semibold prose-a:no-underline prose-a:hover:border-solid prose-img:rounded-sm dark:prose-invert max-w-none"
                 >
                     {!! $body !!}
                 </article>

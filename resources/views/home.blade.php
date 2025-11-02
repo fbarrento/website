@@ -10,6 +10,7 @@
         'title' => $author['name'] ?? config('app.name', 'Laravel'),
         'description' => $aboutPage->frontmatter->excerpt ?? 'Personal website and blog',
         'url' => route('home'),
+        'image' => '/storage/images/francisco.webp',
     ])
 
     <main class="max-w-6xl mx-auto py-12 sm:py-16 lg:py-20">
