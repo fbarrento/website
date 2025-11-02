@@ -19,7 +19,7 @@ class IndexController
         // Load the about block
         $aboutBlock = app(Document::class)::query()
             ->where('content_type', 'block')
-            ->where('slug', 'pages/about')
+            ->where('slug', 'blocks/about')
             ->where('draft', false)
             ->first();
 

@@ -26,10 +26,18 @@ Route::withoutMiddleware([
             ->name('prezet.ogimage')
             ->where('slug', '.*');
 
-        Route::get('/', IndexController::class)
+        Route::get('blog/', IndexController::class)
             ->name('prezet.index');
 
-        Route::get('{slug}', ShowController::class)
+        Route::get('blog/{slug}', ShowController::class)
             ->name('prezet.show')
             ->where('slug', '.*'); // https://laravel.com/docs/11.x/routing#parameters-encoded-forward-slashes
+
+        // Aliases for Prezet compatibility
+        Route::get('prezet', IndexController::class)
+            ->name('prezet.index');
+
+        Route::get('prezet/{slug}', ShowController::class)
+            ->name('prezet.show')
+            ->where('slug', '.*');
     });

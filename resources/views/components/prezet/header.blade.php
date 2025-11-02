@@ -1,90 +1,81 @@
-<header
-    class="sticky top-0 z-50 bg-white px-4 py-5 sm:px-6 lg:px-8 dark:bg-zinc-900"
->
-    <div class="grid grid-cols-12">
-        <div
-            class="col-span-12 flex flex-none flex-wrap items-center justify-between xl:col-span-10 xl:col-start-2"
-        >
-            <div class="relative flex grow basis-0 items-center">
-                <button
-                    aria-label="Menu"
-                    class="mr-4 rounded-lg p-1.5 hover:bg-gray-100 active:bg-gray-200 lg:hidden"
-                    x-on:click="showSidebar = ! showSidebar"
+<div>
+    <div class="relative">
+        <div class="flex h-16 min-w-0 items-center md-mx-3">
+            <div class="relative flex h-full min-w-0 flex-1 items-center gap-x-4 border-b border-gray-500/5 dark:border-gray-300/[0.06]">
+                <div class="flex flex-1 items-center gap-x-4">
+                    <a class="" href="/">
+                        <span class="sr-only">
+                            {{ config('app.name') }} home page
+                        </span>
+                        <div
+                            class="flex items-center gap-2 text-2xl tracking-tight"
+                        >
+                            <span
+                                class="font-semibold text-gray-900 dark:text-gray-200"
+                            >
+                                {{ strtolower(config('app.name')) }}
+                            </span>
+                        </div>
+                    </a>
+                    <div class="hidden items-center gap-x-2 lg:flex"></div>
+                </div>
+                <div
+                    class="relative hidden flex-1 items-center justify-center lg:flex"
                 >
-                    <svg
-                        class="h-6 w-6 text-gray-600"
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                    <button
+                        type="button"
+                        x-on:click="openCommandPalette()"
+                        class="bg-background-light dark:bg-background-dark pointer-events-auto flex h-9 w-full min-w-[43px] items-center justify-between gap-2 truncate rounded-xl pr-3 pl-3.5 text-sm leading-6 text-gray-500 ring-1 ring-gray-400/30 hover:ring-gray-600/30 dark:text-white/50 dark:ring-1 dark:ring-gray-600/30 dark:brightness-[1.1] dark:hover:ring-gray-500/30 dark:hover:brightness-[1.25]"
+                        aria-label="Open search"
                     >
-                        <line x1="4" x2="20" y1="12" y2="12"></line>
-                        <line x1="4" x2="20" y1="6" y2="6"></line>
-                        <line x1="4" x2="20" y1="18" y2="18"></line>
-                    </svg>
-                </button>
+                        <div class="flex min-w-[42px] items-center gap-2">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="16"
+                                height="16"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                class="lucide lucide-search min-w-4 flex-none text-gray-700 hover:text-gray-800 dark:text-gray-400 hover:dark:text-gray-200"
+                            >
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <path d="m21 21-4.3-4.3"></path>
+                            </svg>
+                            <div class="min-w-0 truncate">Search...</div>
+                        </div>
+                        <span class="flex-none text-xs font-semibold">
+                            <span x-text="searchModifierKey"></span>
+                            K
+                        </span>
+                    </button>
+                </div>
+                <div
+                    class="relative ml-auto flex flex-1 items-center justify-end gap-3"
+                >
+                    <a
+                        href="{{ route('prezet.index') }}"
+                        class="navbar-link hidden lg:flex items-center gap-1.5 font-medium whitespace-nowrap text-sm text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300"
+                        target="_blank"
+                    >
+                        Blog
+                    </a>
 
-                <a
-                    aria-label="Home"
-                    href="{{ route('prezet.index') }}"
-                    class="block flex items-center space-x-2"
-                >
-                    <x-prezet.logo />
-                    <span
-                        class="text-2xl font-bold text-gray-900 dark:text-white"
+                    <button
+                        type="button"
+                        x-on:click="openCommandPalette()"
+                        class="lg:hidden flex h-8 w-8 items-center justify-center text-gray-500 hover:text-gray-600 dark:text-gray-400 dark:hover:text-gray-300"
+                        aria-label="Open search"
                     >
-                        {{ strtoupper(config('app.name')) }}
-                    </span>
-                </a>
-            </div>
-            <div
-                class="relative flex basis-0 items-center justify-end gap-3 sm:gap-8 md:grow lg:gap-6"
-            >
-                <x-prezet.search />
-                <a
-                    class="group"
-                    aria-label="GitHub"
-                    href="https://github.com/prezet/prezet"
-                    target="_blank"
-                >
-                    <svg
-                        aria-hidden="true"
-                        viewBox="0 0 16 16"
-                        class="h-6 w-6 fill-gray-400 group-hover:fill-gray-500"
-                    >
-                        <path
-                            d="M8 0C3.58 0 0 3.58 0 8C0 11.54 2.29 14.53 5.47 15.59C5.87 15.66 6.02 15.42 6.02 15.21C6.02 15.02 6.01 14.39 6.01 13.72C4 14.09 3.48 13.23 3.32 12.78C3.23 12.55 2.84 11.84 2.5 11.65C2.22 11.5 1.82 11.13 2.49 11.12C3.12 11.11 3.57 11.7 3.72 11.94C4.44 13.15 5.59 12.81 6.05 12.6C6.12 12.08 6.33 11.73 6.56 11.53C4.78 11.33 2.92 10.64 2.92 7.58C2.92 6.71 3.23 5.99 3.74 5.43C3.66 5.23 3.38 4.41 3.82 3.31C3.82 3.31 4.49 3.1 6.02 4.13C6.66 3.95 7.34 3.86 8.02 3.86C8.7 3.86 9.38 3.95 10.02 4.13C11.55 3.09 12.22 3.31 12.22 3.31C12.66 4.41 12.38 5.23 12.3 5.43C12.81 5.99 13.12 6.7 13.12 7.58C13.12 10.65 11.25 11.33 9.47 11.53C9.76 11.78 10.01 12.26 10.01 13.01C10.01 14.08 10 14.94 10 15.21C10 15.42 10.15 15.67 10.55 15.59C13.71 14.53 16 11.53 16 8C16 3.58 12.42 0 8 0Z"
-                        ></path>
-                    </svg>
-                </a>
+                        <span class="sr-only">Search...</span>
+                        <svg class="size-5 fill-gray-500 hover:fill-gray-600 dark:fill-gray-400 dark:hover:fill-gray-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M480 272C480 317.9 465.1 360.3 440 394.7L566.6 521.4C579.1 533.9 579.1 554.2 566.6 566.7C554.1 579.2 533.8 579.2 521.3 566.7L394.7 440C360.3 465.1 317.9 480 272 480C157.1 480 64 386.9 64 272C64 157.1 157.1 64 272 64C386.9 64 480 157.1 480 272zM272 416C351.5 416 416 351.5 416 272C416 192.5 351.5 128 272 128C192.5 128 128 192.5 128 272C128 351.5 192.5 416 272 416z"/></svg>
+                    </button>
+                    <x-prezet.dark-mode-toggle />
 
-                <button
-                    onclick="
-                        const isDark = document.documentElement.classList.toggle('dark');
-                        // 5) Save the choice
-                        localStorage.setItem('theme', isDark ? 'dark' : 'light');
-                    "
-                    class="group cursor-pointer"
-                >
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth="{1.5}"
-                        stroke="currentColor"
-                        class="h-6 w-6 fill-gray-400 text-gray-400 group-hover:fill-gray-500 group-hover:text-gray-500"
-                    >
-                        <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z"
-                        />
-                    </svg>
-                </button>
+                </div>
             </div>
         </div>
     </div>
-</header>
+</div>
