@@ -9,7 +9,7 @@ tags: [factories, data-objects, tests]
 
 ![](stop-writing-arrays-in-your-tests-laravel-factories-for-data-objects.webp)
 
-Building the [Laravel Orrto SDK](https://github.com/phpdevkits/ortto-sdk) taught me something: test setup shouldn't be harder than the actual testing. When you are integrating with an API that expects complex, nested payloads, raw arrays turn your tests into unreadable nightmares fast.
+Building the [Laravel Ortto SDK](https://github.com/phpdevkits/ortto-sdk) taught me something: test setup shouldn't be harder than the actual testing. When you are integrating with an API that expects complex, nested payloads, raw arrays turn your tests into unreadable nightmares fast.
 
 Here's what I mean. The Ortto API's person merge endpoint expects payloads like this:
 
