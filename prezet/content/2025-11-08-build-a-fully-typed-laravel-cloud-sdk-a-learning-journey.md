@@ -8,7 +8,7 @@ tags: [laravel, laravel-cloud, php, sdk]
 slug: build-a-fully-typed-laravel-cloud-sdk-a-learning-journey
 ---
 
-![[build-a-fully-typed-laravel-cloud-sdk-a-learning-journey.png]]
+![](build-a-fully-typed-laravel-cloud-sdk-a-learning-journey.png)
 
 Laravel Cloud just announced their API is available. As someone who's been inspired by how the Laravel team builds incredible tools, I saw this as the perfect opportunity to learn how to build a production-quality SDK.
 
