@@ -2,13 +2,17 @@
 title: "Building a Fully-Typed Laravel Cloud SDK: A Learning Journey"
 date: 2025-11-08
 excerpt: Laravel Cloud has been running production workloads since February. Last week, they announced their API is now available.
-image: /img/ogimages/2025-11-08-build-a-fully-typed-laravel-cloud-sdk-a-learning-journey.webp
+image: /img/ogimages/build-a-fully-typed-laravel-cloud-sdk-a-learning-journey.webp
 author: francisco
-tags: [laravel, laravel-cloud, php, sdk]
+tags:
+  - laravel
+  - laravel-cloud
+  - php
+  - sdk
 slug: build-a-fully-typed-laravel-cloud-sdk-a-learning-journey
 ---
 
-![](build-a-fully-typed-laravel-cloud-sdk-a-learning-journey.png)
+![](build-a-fully-typed-laravel-cloud-sdk-a-learning-journey.webp)
 
 Laravel Cloud just announced their API is available. As someone who's been inspired by how the Laravel team builds incredible tools, I saw this as the perfect opportunity to learn how to build a production-quality SDK.
 
