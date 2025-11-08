@@ -2,7 +2,7 @@
 title: "Stop Writing Arrays in Your Tests: Laravel Factories for Data Objects"
 date: 2025-11-02
 excerpt: "Building the Laravel Orrto SDK taught me something: test setup shouldn't be harder than the actual testing. When you are integrating with an API that expects complex, nested payloads, raw arrays turn your tests into unreadable nightmares fast."
-image: /images/ogimages/stop-writing-arrays-in-your-tests-laravel-factories-for-data-objects.webp
+image: /img/ogimages/stop-writing-arrays-in-your-tests-laravel-factories-for-data-objects.webp
 author: francisco
 tags:
   - factories
