@@ -4,10 +4,13 @@ slug: testing/building-data-factory-package
 excerpt: "After my last article on Laravel factories with Data Objects, I kept thinking: why should only Laravel developers get this elegant API? Here's how I built a framework-agnostic package."
 date: 2025-11-12
 category: testing
-tags: [laravel, php, testing, packages, open-source]
+tags: 
+    - laravel
+    - php
+    - testing
+    - packages 
+    - open-source
 image: img/ogimages/building-data-factory-package.webp
-series: Laravel Factories
-series_part: 1
 author: francisco
 ---
 
