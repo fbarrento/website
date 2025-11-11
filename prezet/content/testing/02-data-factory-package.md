@@ -7,7 +7,7 @@ category: testing
 tags: [laravel, php, testing, packages, open-source]
 image: img/ogimages/building-data-factory-package.webp
 series: Laravel Factories
-series_part: 2
+series_part: 1
 author: francisco
 ---
 
