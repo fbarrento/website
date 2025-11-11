@@ -4,39 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "2c27e6669a2e3652",
+        "id": "74bf3ea46fa3dad3",
         "type": "tabs",
-        "dimension": 59.200507614213194,
         "children": [
           {
-            "id": "ec198234e55df484",
+            "id": "50f888583a214cdc",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "content/stop-writing-arrays-in-your-tests-laravel-factories-for-data-objects.md",
+                "file": "content/2025-11-08-build-a-fully-typed-laravel-cloud-sdk-a-learning-journey.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "stop-writing-arrays-in-your-tests-laravel-factories-for-data-objects"
-            }
-          }
-        ]
-      },
-      {
-        "id": "e6e5a7f37214e1b0",
-        "type": "tabs",
-        "dimension": 40.7994923857868,
-        "children": [
-          {
-            "id": "aa7d7002643537da",
-            "type": "leaf",
-            "state": {
-              "type": "empty",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "New tab"
+              "title": "2025-11-08-build-a-fully-typed-laravel-cloud-sdk-a-learning-journey"
             }
           }
         ]
@@ -112,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "content/stop-writing-arrays-in-your-tests-laravel-factories-for-data-objects.md",
+                "file": "content/pages/sponsor.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -122,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for stop-writing-arrays-in-your-tests-laravel-factories-for-data-objects"
+              "title": "Backlinks for sponsor"
             }
           },
           {
@@ -187,21 +169,40 @@
       "bases:Create new base": false
     }
   },
-  "active": "ec198234e55df484",
+  "active": "50f888583a214cdc",
   "lastOpenFiles": [
-    "images/stop-writing-arrays-in-your-tests-laravel-factories-for-data-objects.webp",
-    "images/ogimages/stop-writing-arrays-in-your-tests-laravel-factories-for-data-objects.webp",
-    "images/ogimages/stop-writing-arrays-in-your-tests-laravel-factories-for-data-objects.png",
-    "images/stop-writing-arrays-in-your-tests-laravel-factories-for-data-objects.png",
-    "images/ogimages/stop-writing-arrays-in-your-tests-laravel-factories-for-data-objects.svg",
-    "images/ogimages/blocks-about.webp",
-    "images/ogimages",
+    "images/project/sdk/laravel-cloud-sdk/php-sdk-x.webp",
+    "images/project/sdk/laravel-cloud-sdk/php-sdk-website.webp",
+    "images/project/sdk/laravel-cloud-sdk/php-sdk-linkedin.webp",
+    "images/project/sdk/laravel-cloud-sdk",
+    "images/project/sdk",
+    "images/project",
+    "content/projects/sdk/laravel-cloud-sdk/php-sdk.md",
+    "content/projects/sdk/laravel-cloud-sdk",
+    "content/projects/sdk",
+    "content/projects/sdks/laravel-cloud-sdk/php-sdk.md",
+    "content/projects/sdks/laravel-cloud-sdk",
+    "content/projects/sdks",
+    "content/sdk/laravel-cloud-sdk/php-sdk.md",
+    "content/sdk/laravel-cloud-sdk",
+    "content/sdk",
+    "content/projects/laravel-cloud-sdk/php-sdk.md",
+    "content/projects/laravel-cloud-sdk",
+    "images/sdk/laravel-cloud-sdk/php-sdk-x.webp",
+    "images/sdk/laravel-cloud-sdk/php-sdk-website.webp",
+    "images/sdk/laravel-cloud-sdk/php-sdk-linkedin.webp",
+    "images/article/build-a-fully-typed-laravel-cloud-sdk-a-learning-journey-x.webp",
+    "images/article/build-a-fully-typed-laravel-cloud-sdk-a-learning-journey-website.webp",
+    "images/article/build-a-fully-typed-laravel-cloud-sdk-a-learning-journey-linkedin.webp",
+    "images/ogimages/2025-11-08-build-a-fully-typed-laravel-cloud-sdk-a-learning-journey.webp",
+    "content/2025-11-08-build-a-fully-typed-laravel-cloud-sdk-a-learning-journey.md",
+    "content/2025-11-02-stop-writing-arrays-in-your-tests-laravel-factories-for-data-objects.md",
+    "backup/testing/index.md",
+    "content/pages/sponsor.md",
+    "content/blocks/about.md",
+    "backup/blade-templating.md",
+    "pages/sponsor.md",
     "content/laravel-data-factories-1.md",
-    "content/stop-writing-arrays-in-your-tests-laravel-factories-for-data-objects.md",
-    "images/stop-writing-arrays-in-your-tests-laravel-factories-for-data-objects.svg",
-    "images/Unconfirmed 573419.crdownload",
-    "images/francisco.webp",
-    "images/francisco-with-trevo.webp",
     "backup/laravel-vite.md",
     "backup/laravel-validation.md",
     "backup/laravel-routing.md",
@@ -210,23 +211,10 @@
     "backup/laravel-events.md",
     "backup/eloquent-basics.md",
     "backup/laravel-artisan.md",
-    "backup/blade-templating.md",
     "backup/testing/laravel-testing.md",
     "backup/testing/laravel-mocking.md",
     "backup/testing/laravel-fakes.md",
     "backup/testing/laravel-database-testing.md",
-    "backup/testing/index.md",
-    "backup/testing",
-    "backup",
-    "backend",
-    "content/laravel-events.md",
-    "content/laravel-artisan.md",
-    "Untitled.md",
-    "content/blocks/about.md",
-    "content/laravel-vite.md",
-    "content/laravel-validation.md",
-    "content/laravel-routing.md",
-    "content/laravel-queues.md",
-    "content/laravel-middleware.md"
+    "content/laravel-events.md"
   ]
 }

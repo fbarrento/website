@@ -5,11 +5,11 @@ date: 2025-11-01
 contentType: block
 draft: false
 author: francisco
-github: "https://github.com/fbarrento"
-linkedin: "https://www.linkedin.com/in/francisco-barrento/"
-x: "https://x.com/fbarrento"
-pinkary: "https://pinkary.com/@fbarrento"
-image: /img/ogimages/blocks-about.webp
+github: https://github.com/fbarrento
+linkedin: https://www.linkedin.com/in/francisco-barrento/
+x: https://x.com/fbarrento
+pinkary: https://pinkary.com/@fbarrento
+image: /img/blocks-about.webp
 ---
 
 About Me

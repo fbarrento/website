@@ -7,18 +7,12 @@ use WendellAdriel\ValidatedDTO\Attributes\Rules;
 
 class ExtendedFrontmatterData extends FrontmatterData
 {
-    #[Rules(['string', 'in:article,category,video,page,block'])]
+    #[Rules(['string', 'in:article,category,video,page,block,project'])]
     public string $contentType;
 
-    #[Rules(['nullable', 'string', 'url'])]
-    public ?string $github = null;
+    #[Rules(['nullable', 'string', 'in:sdk,website,webapp'])]
+    public ?string $type = null;
 
-    #[Rules(['nullable', 'string', 'url'])]
-    public ?string $linkedin = null;
-
-    #[Rules(['nullable', 'string', 'url'])]
-    public ?string $x = null;
-
-    #[Rules(['nullable', 'string', 'url'])]
-    public ?string $pinkary = null;
+    #[Rules(['nullable', 'string', 'in:default,vibrant'])]
+    public ?string $theme = null;
 }
