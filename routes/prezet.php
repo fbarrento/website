@@ -28,17 +28,15 @@ Route::withoutMiddleware([
     });
 
 // These routes need session/CSRF for Livewire components
-Route::group(function () {
-    Route::get('search', SearchController::class)->name('prezet.search');
+Route::get('search', SearchController::class)->name('prezet.search');
 
-    Route::get('blog/', IndexController::class)
-        ->name('prezet.index');
+Route::get('blog/', IndexController::class)
+    ->name('prezet.index');
 
-    Route::get('blog/{slug}', ShowController::class)
-        ->name('prezet.show')
-        ->where('slug', '.*');
+Route::get('blog/{slug}', ShowController::class)
+    ->name('prezet.show')
+    ->where('slug', '.*');
 
-    Route::get('{slug}', PageController::class)
-        ->name('prezet.page')
-        ->where('slug', '.*');
-});
+Route::get('{slug}', PageController::class)
+    ->name('prezet.page')
+    ->where('slug', '.*');
