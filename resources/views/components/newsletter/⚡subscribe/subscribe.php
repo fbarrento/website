@@ -27,6 +27,7 @@ new class extends Component
         $this->validate();
         $this->subscribeNewsletter->handle($this->email);
         $this->reset();
+        $this->subscribed = true;
     }
 
     /**
