@@ -26,12 +26,7 @@
 <div class="bg-{{ $color }}-50 not-prose rounded-lg p-4">
     <div class="flex">
         <div class="shrink-0">
-            <svg
-                class="text-{{ $color }}-400 h-5 w-5"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-                aria-hidden="true"
-            >
+            <svg class="text-{{ $color }}-400 h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                 {!! $icons[$type] !!}
             </svg>
         </div>

@@ -2,17 +2,12 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
     <url>
         <loc>https://barrento.test/blog/testing/building-data-factory-package</loc>
-        <lastmod>2025-11-11T16:53:43+00:00</lastmod>
+        <lastmod>2025-11-12T22:55:18+00:00</lastmod>
 
             </url>
     <url>
         <loc>https://barrento.test/blog/build-a-fully-typed-laravel-cloud-sdk-a-learning-journey</loc>
-        <lastmod>2025-11-08T16:09:07+00:00</lastmod>
-
-            </url>
-    <url>
-        <loc>https://barrento.test/blog/laravel-cloud-sdk/php-sdk</loc>
-        <lastmod>2025-11-08T21:15:44+00:00</lastmod>
+        <lastmod>2025-11-12T22:56:10+00:00</lastmod>
 
             </url>
     <url>
@@ -22,7 +17,7 @@
             </url>
     <url>
         <loc>https://barrento.test/blog/stop-writing-arrays-in-your-tests-laravel-factories-for-data-objects</loc>
-        <lastmod>2025-11-11T20:44:47+00:00</lastmod>
+        <lastmod>2025-11-12T22:52:40+00:00</lastmod>
 
             </url>
     <url>

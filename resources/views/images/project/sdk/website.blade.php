@@ -1,14 +1,14 @@
 @php
     /**
-     * @var string $title
-     * @var string $tagline
-     * @var array<int, array{label: string, heading: string, description: string, features?: array<int, array{title: string, description: string}>}> $layers
-     * @var array<int, array{title: string, description: string}> $highlights
-     * @var array<int, string> $audiences
-     * @var string $footerNote
-     * @var string $theme
-     * @var string $backgroundHorizontal
-     */
+    * @var string $title
+    * @var string $tagline
+    * @var array<int, array{label: string, heading: string, description: string, features?: array<int, array{title: string, description: string}>}> $layers
+    * @var array<int, array{title: string, description: string}> $highlights
+    * @var array<int, string> $audiences
+    * @var string $footerNote
+    * @var string $theme
+    * @var string $backgroundHorizontal
+    */
 @endphp
 
 <!DOCTYPE html>
@@ -21,10 +21,7 @@
         <title>{{ $title }}</title>
 
         <link rel="preconnect" href="https://fonts.bunny.net" />
-        <link
-            href="https://fonts.bunny.net/css?family=inter:500,600,700&display=swap"
-            rel="stylesheet"
-        />
+        <link href="https://fonts.bunny.net/css?family=inter:500,600,700&display=swap" rel="stylesheet" />
 
         <style>
             :root {
@@ -78,7 +75,9 @@
                 line-height: 1.2;
                 font-weight: 500;
                 color: #fff;
-                text-shadow: 0 2px 8px rgba(139, 92, 246, 0.3), 0 1px 4px rgba(59, 130, 246, 0.2);
+                text-shadow:
+                    0 2px 8px rgba(139, 92, 246, 0.3),
+                    0 1px 4px rgba(59, 130, 246, 0.2);
             }
 
             main {
@@ -96,7 +95,10 @@
                 display: flex;
                 flex-direction: column;
                 gap: 20px;
-                box-shadow: 0 8px 32px rgba(139, 92, 246, 0.3), 0 4px 16px rgba(59, 130, 246, 0.2), 0 2px 8px rgba(236, 72, 153, 0.15);
+                box-shadow:
+                    0 8px 32px rgba(139, 92, 246, 0.3),
+                    0 4px 16px rgba(59, 130, 246, 0.2),
+                    0 2px 8px rgba(236, 72, 153, 0.15);
             }
 
             .layer-header {
@@ -118,7 +120,9 @@
                 font-size: 40px;
                 font-weight: 600;
                 color: #fff;
-                text-shadow: 0 2px 8px rgba(139, 92, 246, 0.25), 0 1px 4px rgba(59, 130, 246, 0.15);
+                text-shadow:
+                    0 2px 8px rgba(139, 92, 246, 0.25),
+                    0 1px 4px rgba(59, 130, 246, 0.15);
             }
 
             .feature-grid {
@@ -140,7 +144,10 @@
                 justify-content: flex-start;
                 gap: 12px;
                 min-height: 80px;
-                box-shadow: 0 6px 24px rgba(139, 92, 246, 0.25), 0 3px 12px rgba(59, 130, 246, 0.15), 0 1px 6px rgba(236, 72, 153, 0.1);
+                box-shadow:
+                    0 6px 24px rgba(139, 92, 246, 0.25),
+                    0 3px 12px rgba(59, 130, 246, 0.15),
+                    0 1px 6px rgba(236, 72, 153, 0.1);
             }
 
             .feature-header {
@@ -204,7 +211,9 @@
                 font-size: 16px;
                 color: #fff;
                 text-align: center;
-                box-shadow: 0 4px 12px rgba(139, 92, 246, 0.2), 0 2px 6px rgba(59, 130, 246, 0.15);
+                box-shadow:
+                    0 4px 12px rgba(139, 92, 246, 0.2),
+                    0 2px 6px rgba(59, 130, 246, 0.15);
             }
 
             footer {
@@ -222,13 +231,11 @@
         <div class="frame">
             <div class="content">
                 <header>
-                    <h1>
-                        Laravel Cloud SDK Architecture at a glance.
-                    </h1>
+                    <h1>Laravel Cloud SDK Architecture at a glance.</h1>
                 </header>
 
                 <main>
-                    @foreach($layers as $layer)
+                    @foreach ($layers as $layer)
                         <div class="layer-card">
                             <div class="layer-header">
                                 <p class="layer-label">
@@ -238,21 +245,25 @@
                                     {{ $layer['heading'] }}
                                 </h2>
                             </div>
-                            @if(!empty($layer['features'] ?? []))
+                            @if (! empty($layer['features'] ?? []))
                                 <div class="feature-grid">
-                                    @foreach($layer['features'] as $feature)
+                                    @foreach ($layer['features'] as $feature)
                                         <div class="feature-card">
                                             <div class="feature-header">
-                                                @if(!empty($feature['icon'] ?? null))
+                                                @if (! empty($feature['icon'] ?? null))
                                                     <div class="feature-icon">
-                                                        <x-icon name="lucide-{{ $feature['icon'] }}" class="feature-icon-svg" />
+                                                        <x-icon
+                                                            name="lucide-{{ $feature['icon'] }}"
+                                                            class="feature-icon-svg"
+                                                        />
                                                     </div>
                                                 @endif
+
                                                 <p class="feature-title">
                                                     {{ $feature['title'] }}
                                                 </p>
                                             </div>
-                                            @if(!empty($feature['description'] ?? null))
+                                            @if (! empty($feature['description'] ?? null))
                                                 <p class="feature-description">
                                                     {{ $feature['description'] }}
                                                 </p>
@@ -261,9 +272,10 @@
                                     @endforeach
                                 </div>
                             @endif
-                            @if(!empty($layer['audiences'] ?? []))
+
+                            @if (! empty($layer['audiences'] ?? []))
                                 <div class="audience-grid">
-                                    @foreach($layer['audiences'] as $audience)
+                                    @foreach ($layer['audiences'] as $audience)
                                         <span class="audience-pill">
                                             {{ $audience }}
                                         </span>
@@ -276,10 +288,9 @@
 
                 <footer>
                     <span>{{ $footerNote }}</span>
-                    <span style="white-space:nowrap;">barrento.dev</span>
+                    <span style="white-space: nowrap">barrento.dev</span>
                 </footer>
             </div>
         </div>
     </body>
 </html>
-

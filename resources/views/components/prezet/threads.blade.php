@@ -31,22 +31,8 @@
         "
         target="_blank"
     >
-        <div
-            style="
-                padding: 40px;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-            "
-        >
-            <div
-                style="
-                    display: block;
-                    height: 32px;
-                    width: 32px;
-                    padding-bottom: 20px;
-                "
-            >
+        <div style="padding: 40px; display: flex; flex-direction: column; align-items: center">
+            <div style="display: block; height: 32px; width: 32px; padding-bottom: 20px">
                 <svg
                     aria-label="Threads"
                     height="32px"
@@ -60,27 +46,10 @@
                     />
                 </svg>
             </div>
-            <div
-                style="
-                    font-size: 15px;
-                    line-height: 21px;
-                    color: #999999;
-                    font-weight: 400;
-                    padding-bottom: 4px;
-                "
-            >
+            <div style="font-size: 15px; line-height: 21px; color: #999999; font-weight: 400; padding-bottom: 4px">
                 Post by @{{$username}}
             </div>
-            <div
-                style="
-                    font-size: 15px;
-                    line-height: 21px;
-                    color: #000000;
-                    font-weight: 600;
-                "
-            >
-                View on Threads
-            </div>
+            <div style="font-size: 15px; line-height: 21px; color: #000000; font-weight: 600">View on Threads</div>
         </div>
     </a>
 </blockquote>

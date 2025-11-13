@@ -14,7 +14,7 @@ image: img/ogimages/building-data-factory-package.webp
 author: francisco
 ---
 
-![](building-data-factory-package.webp)
+![](articles/packages/02-data-factory-package-hero.webp)
 
 After my [last article on using Laravel factories with Data Objects](https://barrento.dev/blog/stop-writing-arrays-in-your-tests-laravel-factories-for-data-objects), I kept thinking: why should only Laravel developers get this elegant API?
 

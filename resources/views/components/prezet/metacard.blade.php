@@ -5,7 +5,5 @@
 >
     <img x-bind:src="ogimage" alt="" />
     <h2 x-text="document.title" class="mt-2 font-semibold"></h2>
-    <div
-        x-text="document.querySelector('meta[name=\'description\']')?.content"
-    ></div>
+    <div x-text="document.querySelector('meta[name=\'description\']')?.content"></div>
 </div>

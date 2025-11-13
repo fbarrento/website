@@ -22,12 +22,8 @@
                 </h1>
             </div>
 
-            <div
-                class="col-span-12 xl:col-span-10 xl:col-start-2 2xl:col-span-8 2xl:col-start-4"
-            >
-                <div
-                    class="h-px w-full border-0 bg-zinc-200 dark:bg-zinc-700"
-                ></div>
+            <div class="col-span-12 xl:col-span-10 xl:col-start-2 2xl:col-span-8 2xl:col-start-4">
+                <div class="h-px w-full border-0 bg-zinc-200 dark:bg-zinc-700"></div>
             </div>
 
             {{-- Main Content --}}
@@ -47,5 +43,6 @@
                 @endforeach
             </div>
         </div>
+        <x-newsletter />
     </x-prezet.alpine>
 </x-prezet.template>

@@ -14,15 +14,11 @@
 
 {{-- Desktop Sidebar --}}
 <div class="hidden lg:relative lg:block lg:flex-none">
-    <div
-        class="absolute inset-y-0 right-0 w-[50vw] bg-gray-50 dark:bg-gray-950"
-    ></div>
+    <div class="absolute inset-y-0 right-0 w-[50vw] bg-gray-50 dark:bg-gray-950"></div>
     <div
         class="absolute top-16 right-0 bottom-0 hidden h-12 w-px bg-gradient-to-t from-gray-200 dark:from-gray-800"
     ></div>
-    <div
-        class="absolute top-28 right-0 bottom-0 hidden w-px bg-gray-200 dark:bg-gray-800"
-    ></div>
+    <div class="absolute top-28 right-0 bottom-0 hidden w-px bg-gray-200 dark:bg-gray-800"></div>
     <div
         class="sticky top-[4.75rem] -ml-0.5 flex h-[calc(100vh-4.75rem)] w-64 flex-col justify-between overflow-x-hidden overflow-y-auto pt-16 pr-8 pb-4 pl-0.5 xl:w-72 xl:pr-16"
     >

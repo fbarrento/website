@@ -1,17 +1,17 @@
 @php
     /**
-     * @var string $title
-     * @var string $tagline
-     * @var string|null $excerpt
-     * @var string|null $authorName
-     * @var string|null $authorBio
-     * @var string|null $date
-     * @var array<int, string> $tags
-     * @var string|null $category
-     * @var string $footerNote
-     * @var string $theme
-     * @var string $backgroundVertical
-     */
+    * @var string $title
+    * @var string $tagline
+    * @var string|null $excerpt
+    * @var string|null $authorName
+    * @var string|null $authorBio
+    * @var string|null $date
+    * @var array<int, string> $tags
+    * @var string|null $category
+    * @var string $footerNote
+    * @var string $theme
+    * @var string $backgroundVertical
+    */
 @endphp
 
 <!DOCTYPE html>
@@ -24,10 +24,7 @@
         <title>{{ $title }}</title>
 
         <link rel="preconnect" href="https://fonts.bunny.net" />
-        <link
-            href="https://fonts.bunny.net/css?family=inter:500,600,700&display=swap"
-            rel="stylesheet"
-        />
+        <link href="https://fonts.bunny.net/css?family=inter:500,600,700&display=swap" rel="stylesheet" />
 
         <style>
             :root {
@@ -136,16 +133,18 @@
     <body>
         <div class="layout">
             <header>
-                @if($category)
+                @if ($category)
                     <div class="category">{{ $category }}</div>
                 @endif
+
                 <h1>{{ $title }}</h1>
-                @if($excerpt)
+                @if ($excerpt)
                     <p class="excerpt">{{ $excerpt }}</p>
                 @endif
-                @if(!empty($tags))
+
+                @if (! empty($tags))
                     <div class="tags">
-                        @foreach($tags as $tag)
+                        @foreach ($tags as $tag)
                             <span class="tag">{{ $tag }}</span>
                         @endforeach
                     </div>
@@ -153,15 +152,16 @@
             </header>
 
             <footer>
-                @if($authorName)
+                @if ($authorName)
                     <div class="author">{{ $authorName }}</div>
                 @endif
-                @if($date)
+
+                @if ($date)
                     <div class="date">{{ $date }}</div>
                 @endif
+
                 <div>{{ $footerNote }}</div>
             </footer>
         </div>
     </body>
 </html>
-

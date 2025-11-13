@@ -13,12 +13,8 @@
     role="document"
 >
     {{-- Search Input --}}
-    <div
-        class="relative rounded-t-lg bg-white px-2 pt-2 dark:bg-zinc-800"
-    >
-        <div
-            class="flex w-full items-center rounded-lg bg-zinc-100 px-3 dark:bg-zinc-700/75"
-        >
+    <div class="relative rounded-t-lg bg-white px-2 pt-2 dark:bg-zinc-800">
+        <div class="flex w-full items-center rounded-lg bg-zinc-100 px-3 dark:bg-zinc-700/75">
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 20 20"
@@ -46,7 +42,7 @@
                 x-on:keydown.page-up.prevent.stop="navigateSearchResults('first')"
                 x-on:keydown.page-down.prevent.stop="navigateSearchResults('last')"
                 type="text"
-                class="w-full border-none bg-transparent py-3 text-sm placeholder:text-zinc-500 focus:outline-hidden focus:ring-0 dark:placeholder:text-zinc-400"
+                class="w-full border-none bg-transparent py-3 text-sm placeholder:text-zinc-500 focus:ring-0 focus:outline-hidden dark:placeholder:text-zinc-400"
                 placeholder="Search..."
                 tabindex="0"
                 role="combobox"
@@ -60,14 +56,7 @@
                 fill="none"
                 viewBox="0 0 24 24"
             >
-                <circle
-                    class="opacity-25"
-                    cx="12"
-                    cy="12"
-                    r="10"
-                    stroke="currentColor"
-                    stroke-width="4"
-                ></circle>
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
                 <path
                     class="opacity-75"
                     fill="currentColor"
@@ -92,9 +81,8 @@
                 x-on:click="onSearchOptionSelected()"
                 x-on:mouseenter="setSearchHighlighted(option.id, 'mouse')"
                 x-bind:class="{
-                    'text-white bg-zinc-600 dark:text-white dark:bg-zinc-600': isSearchHighlighted(
-                        option.id,
-                    ),
+                    'text-white bg-zinc-600 dark:text-white dark:bg-zinc-600':
+                        isSearchHighlighted(option.id),
                     'text-zinc-600 dark:text-zinc-300': ! isSearchHighlighted(option.id),
                 }"
                 x-bind:data-selected="isSearchHighlighted(option.id)"
@@ -106,10 +94,7 @@
                 tabindex="-1"
             >
                 <div class="flex grow items-center">
-                    <div
-                        x-text="option.text"
-                        class="font-medium"
-                    ></div>
+                    <div x-text="option.text" class="font-medium"></div>
                 </div>
                 <div class="flex-none text-xs font-semibold opacity-75">
                     <span x-text="option.slug"></span>
@@ -120,13 +105,8 @@
     {{-- END Listbox --}}
 
     {{-- No Results Feedback --}}
-    <div
-        x-show="searchFilterResults.length === 0"
-        class="rounded-b-xl bg-white p-3 dark:bg-zinc-800"
-    >
-        <div
-            class="space-y-3 py-1.5 text-center text-sm text-zinc-500 dark:text-zinc-400"
-        >
+    <div x-show="searchFilterResults.length === 0" class="rounded-b-xl bg-white p-3 dark:bg-zinc-800">
+        <div class="space-y-3 py-1.5 text-center text-sm text-zinc-500 dark:text-zinc-400">
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"

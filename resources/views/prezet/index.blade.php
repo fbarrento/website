@@ -1,4 +1,8 @@
-@php use Illuminate\Support\Collection;use Prezet\Prezet\Data\DocumentData; @endphp
+@php
+    use Illuminate\Support\Collection;
+    use Prezet\Prezet\Data\DocumentData;
+@endphp
+
 @php
     /* @var array $nav */
     /* @var array|null|string $currentTag */
@@ -17,23 +21,17 @@
         'url' => route('prezet.index'),
     ])
 
-    <div class="mx-auto max-w-6xl py-12 sm:py-16 lg:py-20">
-        <h1
-            class="text-3xl !leading-snug font-bold sm:text-4xl lg:text-5xl lg:!leading-tight dark:text-white"
-        >
-            Blog
-        </h1>
+    <div class="mx-auto max-w-6xl pt-12 sm:pt-16 lg:pt-20">
+        <h1 class="text-3xl !leading-snug font-bold sm:text-4xl lg:text-5xl lg:!leading-tight dark:text-white">Blog</h1>
 
         <div class="mb-6 justify-between sm:flex md:mb-8">
-            <p class="text-lg leading-7 text-gray-600 dark:text-gray-400">
-                All latest Barrento's posts in one place.
-            </p>
+            <p class="text-lg leading-7 text-gray-600 dark:text-gray-400">All latest Barrento's posts in one place.</p>
             <div class="mt-4 block sm:mt-0">
                 @if ($currentTag)
                     <span
                         class="inline-flex items-center gap-x-0.5 rounded-md bg-gray-50 px-2.5 py-1.5 text-xs font-medium text-gray-600 ring-1 ring-gray-500/10 ring-inset dark:bg-[#1a1a1a] dark:text-gray-300 dark:ring-[#3E3E3A]"
                     >
-                        <x-prezet.icon-tag class="mr-1 size-3.5"/>
+                        <x-prezet.icon-tag class="mr-1 size-3.5" />
 
                         {{ strtoupper($currentTag) }}
                         <a
@@ -45,7 +43,7 @@
                                 viewBox="0 0 14 14"
                                 class="h-3.5 w-3.5 stroke-gray-600/50 group-hover:stroke-gray-600/75 dark:stroke-gray-400/50 dark:group-hover:stroke-gray-400/75"
                             >
-                                <path d="M4 4l6 6m0-6l-6 6"/>
+                                <path d="M4 4l6 6m0-6l-6 6" />
                             </svg>
                             <span class="absolute -inset-1"></span>
                         </a>
@@ -81,7 +79,7 @@
                                 viewBox="0 0 14 14"
                                 class="h-3.5 w-3.5 stroke-gray-600/50 group-hover:stroke-gray-600/75 dark:stroke-gray-400/50 dark:group-hover:stroke-gray-400/75"
                             >
-                                <path d="M4 4l6 6m0-6l-6 6"/>
+                                <path d="M4 4l6 6m0-6l-6 6" />
                             </svg>
                             <span class="absolute -inset-1"></span>
                         </a>
@@ -107,7 +105,7 @@
                                 viewBox="0 0 14 14"
                                 class="h-3.5 w-3.5 stroke-gray-600/50 group-hover:stroke-gray-600/75 dark:stroke-gray-400/50 dark:group-hover:stroke-gray-400/75"
                             >
-                                <path d="M4 4l6 6m0-6l-6 6"/>
+                                <path d="M4 4l6 6m0-6l-6 6" />
                             </svg>
                             <span class="absolute -inset-1"></span>
                         </a>
@@ -120,9 +118,7 @@
             <section class="mb-12">
                 <div class="relative">
                     <div class="absolute inset-0 flex items-center">
-                        <div
-                            class="w-full border-t border-[#e3e3e0] dark:border-[#3E3E3A]"
-                        ></div>
+                        <div class="w-full border-t border-[#e3e3e0] dark:border-[#3E3E3A]"></div>
                     </div>
                     <div class="relative flex justify-start">
                         <span
@@ -143,5 +139,8 @@
                 </div>
             </section>
         @endforeach
+    </div>
+    <div class="my-12 sm:my-16 lg:my-20">
+        <x-newsletter />
     </div>
 </x-prezet.template>

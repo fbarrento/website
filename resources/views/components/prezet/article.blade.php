@@ -18,9 +18,7 @@
             @endif
         </div>
 
-        <h2
-            class="text-xl leading-tight font-semibold transition-colors duration-200 hover:opacity-75 dark:text-white"
-        >
+        <h2 class="text-xl leading-tight font-semibold transition-colors duration-200 hover:opacity-75 dark:text-white">
             <a href="{{ route('prezet.show', $article->slug) }}">
                 {{ $article->frontmatter->title }}
             </a>
@@ -30,25 +28,19 @@
             {{ $article->frontmatter->excerpt }}
         </p>
 
-        <div
-            class="text-muted-foreground flex items-center gap-2 text-sm dark:text-zinc-400"
-        >
+        <div class="text-muted-foreground flex items-center gap-2 text-sm dark:text-zinc-400">
             <a
                 href="{{ route('prezet.index', ['author' => strtolower($article->frontmatter->author)]) }}"
                 class="group flex items-center gap-2"
             >
-                <div
-                    class="flex h-6 w-6 items-center justify-center overflow-hidden rounded"
-                >
+                <div class="flex h-6 w-6 items-center justify-center overflow-hidden rounded">
                     <img
                         src="{{ $author['image'] ?? '' }}"
                         alt="{{ $post->author->name ?? 'Author' }}"
                         class="h-full w-full rounded bg-zinc-100 object-cover transition-all duration-300 group-hover:opacity-75 dark:bg-zinc-800"
                     />
                 </div>
-                <span
-                    class="group-hover:text-primary transition-all duration-300 dark:group-hover:text-zinc-300"
-                >
+                <span class="group-hover:text-primary transition-all duration-300 dark:group-hover:text-zinc-300">
                     {{ $author['name'] ?? 'Anonymous' }}
                 </span>
             </a>

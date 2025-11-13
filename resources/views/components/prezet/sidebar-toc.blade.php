@@ -1,8 +1,9 @@
-@props(['headings', 'activeHeading'])
+@props([
+    'headings',
+    'activeHeading',
+])
 
-<nav
-    class="-mt-10 w-[16.5rem] space-y-2 overflow-y-auto pt-10 pb-4 text-sm leading-6 text-gray-600"
->
+<nav class="-mt-10 w-[16.5rem] space-y-2 overflow-y-auto pt-10 pb-4 text-sm leading-6 text-gray-600">
     <button
         class="flex cursor-pointer items-center space-x-2 font-medium text-gray-700 transition-colors hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100"
         type="button"
@@ -18,31 +19,16 @@
             stroke-width="2"
             class="h-3 w-3"
         >
-            <path
-                d="M2.444 12.667H13.556"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-            />
-            <path
-                d="M2.444 3.333H13.556"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-            />
-            <path
-                d="M2.444 8H7.333"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-            />
+            <path d="M2.444 12.667H13.556" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M2.444 3.333H13.556" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M2.444 8H7.333" stroke-linecap="round" stroke-linejoin="round" />
         </svg>
         <span>On this page</span>
     </button>
 
     <ul class="toc">
         @foreach ($headings as $h2)
-            <li
-                class="toc-item relative"
-                data-depth="0"
-            >
+            <li class="toc-item relative" data-depth="0">
                 <a
                     href="#{{ $h2['id'] }}"
                     class="block py-1 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300"

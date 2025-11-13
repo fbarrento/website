@@ -137,9 +137,35 @@ return [
         'francisco' => [
             '@type' => 'Person',
             'name' => 'Francisco Barrento',
-            'url' => 'https://github.com/fbarrento',
+            'url' => 'https://barrento.dev',
             'image' => '/img/francisco.webp',
             'bio' => 'Staff Software Engineer and Tech Lead at AXOGROUP working on uScore. I build Laravel applications, create open-source SDKs, and explore how AI can make development teams better. Also a father of two, dog owner, and occasional horse supervisor.',
+            'social_profiles' => [
+                'linkedin' => [
+                    'url' => 'https://linkedin.com/in/fbarrento',
+                    'icon' => 'bi-linkedin'
+                ],
+                'github' => [
+                    'url' => 'https://github.com/fbarrento',
+                    'icon' => 'bi-github'
+                ],
+                'twitter' => [
+                    'url' => 'https://twitter.com/fbarrento',
+                    'icon' => 'bi-twitter-x'
+                ],
+                'threads' => [
+                    'url' => 'https://threads.net/@fbarrento',
+                    'icon' => 'bi-threads'
+                ],
+                'youtube' => [
+                    'url' => 'https://youtube.com/@FranciscoBarrento',
+                    'icon' => 'bi-youtube'
+                ],
+                'twitch' => [
+                    'url' => 'https://twitch.tv/fbarrento',
+                    'icon' => 'bi-twitch'
+                ],
+            ]
         ],
         'prezet' => [
             '@type' => 'Person',

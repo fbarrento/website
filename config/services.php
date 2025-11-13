@@ -34,5 +34,9 @@ return [
             'channel' => env('SLACK_BOT_USER_DEFAULT_CHANNEL'),
         ],
     ],
+    'brevo' => [
+        'url' => env('BREVO_URL', 'https://api.brevo.com/v3'),
+        'api_key' => env('BREVO_API_KEY'),
+    ],
 
 ];

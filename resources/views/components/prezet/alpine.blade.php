@@ -1,5 +1,5 @@
 <script>
-    window.prezetAlpineData = function() {
+    window.prezetAlpineData = function () {
         return {
             showSidebar: false,
             activeHeading: null,
@@ -22,8 +22,8 @@
                 try {
                     const response = await fetch(`{{ route('prezet.search') }}?q=${encodeURIComponent(query)}`, {
                         headers: {
-                            'Content-Type': 'application/json'
-                        }
+                            'Content-Type': 'application/json',
+                        },
                     });
                     if (!response.ok) throw new Error('Search failed');
                     return await response.json();
@@ -82,8 +82,11 @@
                 if (id === null) {
                     this.searchHighlightedOption = null;
                     this.searchHighlightedIndex = -1;
-                } else if (this.searchHighlightedOption?.id != id && (mode === 'keyboard' || (mode === 'mouse' && this.searchEnableMouseHighlighting))) {
-                    this.searchHighlightedOption = this.searchOptions.find(options => options.id === id) || null;
+                } else if (
+                    this.searchHighlightedOption?.id != id &&
+                    (mode === 'keyboard' || (mode === 'mouse' && this.searchEnableMouseHighlighting))
+                ) {
+                    this.searchHighlightedOption = this.searchOptions.find((options) => options.id === id) || null;
 
                     if (mode === 'mouse' && this.searchEnableMouseHighlighting) {
                         this.searchHighlightedIndex = this.searchFilterResults.findIndex((option) => {
@@ -91,7 +94,9 @@
                         });
                     } else {
                         this.searchEnableMouseHighlighting = false;
-                        this.$refs.searchListbox.querySelector(`li[data-id='${id}']`).scrollIntoView({ block: 'nearest' });
+                        this.$refs.searchListbox
+                            .querySelector(`li[data-id='${id}']`)
+                            .scrollIntoView({ block: 'nearest' });
                     }
                 }
             },
@@ -141,52 +146,48 @@
             },
 
             init() {
-                const headingElements = document.querySelectorAll(
-                    'article h2, article h3',
-                )
+                const headingElements = document.querySelectorAll('article h2, article h3');
 
                 // Create an Intersection Observer
                 const observer = new IntersectionObserver(
                     (entries) => {
-                        const visibleHeadings = entries.filter(
-                            (entry) => entry.isIntersecting,
-                        )
+                        const visibleHeadings = entries.filter((entry) => entry.isIntersecting);
                         if (visibleHeadings.length > 0) {
                             // Find the visible heading with the lowest top value
-                            const topHeading = visibleHeadings.reduce(
-                                (prev, current) =>
-                                    prev.boundingClientRect.top <
-                                    current.boundingClientRect.top
-                                        ? prev
-                                        : current,
-                            )
+                            const topHeading = visibleHeadings.reduce((prev, current) =>
+                                prev.boundingClientRect.top < current.boundingClientRect.top ? prev : current,
+                            );
 
-                            this.activeHeading = topHeading.target.querySelector('a').id
+                            this.activeHeading = topHeading.target.querySelector('a').id;
                         }
                     },
                     { rootMargin: '0px 0px -75% 0px', threshold: 1 },
-                )
+                );
 
                 // Observe each heading
                 headingElements.forEach((heading) => {
-                    observer.observe(heading)
-                })
+                    observer.observe(heading);
+                });
 
                 // Set the modifier key based on platform
-                this.searchModifierKey = /mac/i.test(navigator.userAgentData ? navigator.userAgentData.platform : navigator.platform) ? '⌘' : 'Ctrl';
+                this.searchModifierKey = /mac/i.test(
+                    navigator.userAgentData ? navigator.userAgentData.platform : navigator.platform,
+                )
+                    ? '⌘'
+                    : 'Ctrl';
 
                 // Initialize search filter results
                 this.searchFilterResults = this.searchOptions;
             },
 
             scrollToHeading(headingId) {
-                const heading = document.getElementById(headingId)
+                const heading = document.getElementById(headingId);
                 if (heading) {
-                    heading.scrollIntoView({ behavior: 'smooth' })
+                    heading.scrollIntoView({ behavior: 'smooth' });
                 }
             },
-        }
-    }
+        };
+    };
 </script>
 <div
     x-data="prezetAlpineData()"
