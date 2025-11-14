@@ -1,59 +1,60 @@
 <div class="py-2">
     @if (! $subscribed)
         <form wire:submit="subscribe">
-            <div class="flex flex-col justify-center space-y-2">
-                <label class="relative min-w-[240px] flex-1 items-center">
-                    <div class="flex w-full flex-wrap items-stretch gap-4">
-                        <span class="sr-only">Email</span>
-                        @if ($errors->has('email'))
-                            @svg('lucide-circle-x', ['class' => 'absolute top-1/2 left-3 h-6 w-6 -translate-y-1/2 text-red-500'])
-                        @else
-                            @svg('bi-envelope-at', ['class' => 'absolute top-1/2 left-3 h-6 w-6 -translate-y-1/2 text-gray-600 dark:text-gray-400'])
-                        @endif
-                        <!-- Honeypot field -->
-                        <input
-                            type="text"
-                            name="website"
-                            wire:model="honeypot"
-                            class="hidden"
-                            tabindex="1"
-                            autocomplete="off"
-                        />
+            <div class="flex flex-col space-y-3">
+                <input
+                    type="text"
+                    name="website"
+                    wire:model="website"
+                    tabindex="-1"
+                    autocomplete="off"
+                    class="absolute top-0 left-0 -z-10 h-0 w-0 opacity-0"
+                    aria-hidden="true"
+                />
+
+                <div class="flex flex-col gap-3 sm:flex-row">
+                    <label class="relative flex-1">
+                        <span class="sr-only">Email address</span>
+                        @svg('lucide-mail', ['class' => 'pointer-events-none absolute top-1/2 left-3.5 h-5 w-5 -translate-y-1/2 text-zinc-400 dark:text-zinc-500'])
                         <input
                             type="email"
                             wire:model="email"
-                            placeholder="Enter your email"
+                            placeholder="your@email.com"
                             required
-                            @class([
-                                'w-full flex-1 rounded-lg border px-12 py-3 transition focus:ring-2 focus:ring-offset-2 focus:outline-none',
-                                'focus:ring-primary-600/80 border-gray-200 bg-transparent text-gray-600 placeholder-gray-600/50 focus:border-gray-100 focus:bg-gray-100/40 dark:border-gray-700 dark:text-gray-300 dark:placeholder-gray-500 dark:focus:border-gray-600 dark:focus:bg-gray-800/40' => ! $errors->has(
-                                    'email',
-                                ),
-                                'border-red-300 bg-red-50/50 text-red-900 placeholder-red-400 focus:border-red-500 focus:ring-red-500 dark:border-red-700 dark:bg-red-900/20 dark:text-red-300' => $errors->has(
-                                    'email',
-                                ),
-                            ])
+                            class="focus:border-primary-500 focus:ring-primary-500/20 dark:focus:border-primary-400 dark:focus:ring-primary-400/20 h-12 w-full rounded-lg border border-zinc-200 bg-white pr-4 pl-11 text-zinc-900 placeholder-zinc-400 shadow-sm transition duration-200 focus:ring-2 focus:outline-none disabled:cursor-not-allowed disabled:opacity-50 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-100 dark:placeholder-zinc-500"
                         />
-                        <x-button class="flex gap-2">
-                            <span wire:loading.remove>Subscribe</span>
-                            <span wire:loading>Subscribing...</span>
-                            <div wire:loading>
-                                @svg('lucide-loader-circle', ['class' => 'h-5 w-5 animate-spin text-white/90'])
-                            </div>
-                        </x-button>
-                    </div>
-                </label>
+                    </label>
+
+                    <button
+                        type="submit"
+                        class="group bg-primary-600 hover:bg-primary-700 focus-visible:ring-primary-600 dark:bg-primary-600 dark:hover:bg-primary-500 dark:focus-visible:ring-primary-500 inline-flex h-12 items-center justify-center gap-2 rounded-lg px-6 font-semibold whitespace-nowrap text-white shadow-sm transition-all duration-200 hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                        wire:loading.attr="disabled"
+                    >
+                        <span wire:loading.remove>Subscribe</span>
+                        <span wire:loading class="flex items-center gap-2">
+                            @svg('lucide-loader-circle', ['class' => 'h-5 w-5 animate-spin'])
+                            <span>Subscribing...</span>
+                        </span>
+                    </button>
+                </div>
+
                 @error('email')
                     <div
-                        class="flex items-center gap-2 rounded-md bg-red-50 px-3 py-2 text-sm text-red-800 dark:bg-red-900/20 dark:text-red-300"
+                        class="flex items-start gap-2 rounded-lg bg-red-50 p-3 text-sm text-red-700 dark:bg-red-950/30 dark:text-red-400"
                     >
-                        @svg('lucide-alert-circle', ['class' => 'h-4 w-4 flex-shrink-0'])
+                        @svg('lucide-circle-x', ['class' => 'mt-0.5 h-4 w-4 flex-shrink-0'])
                         <span>{{ $message }}</span>
                     </div>
                 @enderror
             </div>
         </form>
     @else
-        <x-newsletter.success />
+        <div class="bg-primary-50 dark:bg-primary-950/30 flex items-start gap-3 rounded-lg p-4 text-sm">
+            @svg('lucide-circle-check', ['class' => 'text-primary-600 dark:text-primary-400 mt-0.5 h-5 w-5 flex-shrink-0'])
+            <div>
+                <p class="text-primary-900 dark:text-primary-100 font-semibold">Thanks for subscribing!</p>
+                <p class="text-primary-700 dark:text-primary-300 mt-1">Check your inbox for confirmation.</p>
+            </div>
+        </div>
     @endif
 </div>
