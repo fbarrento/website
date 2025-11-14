@@ -43,6 +43,6 @@
                 @endforeach
             </div>
         </div>
-        <x-newsletter />
+        <x-newsletter.inline />
     </x-prezet.alpine>
 </x-prezet.template>

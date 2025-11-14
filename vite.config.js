@@ -17,6 +17,7 @@ export default defineConfig({
             ],
             refresh: true,
             detectTls: host,
+            publicDirectory: 'public',
         }),
         watchAndRun([
             {
@@ -26,11 +27,14 @@ export default defineConfig({
                 delay: 1000,
                 // watchKind: ['add', 'change', 'unlink'], // (default)
             },
-        ]),
+        ])
     ],
     server: {
         host,
         hmr: { host },
+        fs: {
+            allow: ['..']
+        }
     },
 })
 

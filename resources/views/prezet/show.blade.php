@@ -84,6 +84,6 @@
         </div>
     </x-prezet.alpine>
     <div class="mx-auto my-12 w-full max-w-4xl sm:my-16 lg:my-20">
-        <x-newsletter />
+        <x-newsletter.inline />
     </div>
 </x-prezet.template>

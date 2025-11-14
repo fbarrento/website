@@ -141,6 +141,6 @@
         @endforeach
     </div>
     <div class="my-12 sm:my-16 lg:my-20">
-        <x-newsletter />
+        <x-newsletter.inline />
     </div>
 </x-prezet.template>

@@ -109,6 +109,22 @@
                 </div>
             </x-prezet.alpine>
         </div>
-        @livewireScriptConfig
+        @livewireScripts
+        <script>
+            document.addEventListener('livewire:initialized', () => {
+                Livewire.on('newsletter-subscribed', (event) => {
+                    if (event.track && typeof gtag !== 'undefined') {
+                        gtag('event', 'newsletter_signup', {
+                            event_category: 'engagement',
+                            event_label: event.source,
+                        });
+                    }
+
+                    @env('local')
+                        console.log('Newsletter subscription:', event);
+                    @endenv
+                });
+            });
+        </script>
     </body>
 </html>
