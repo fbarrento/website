@@ -28,7 +28,7 @@ new class extends Component
 
     public function mount(): void
     {
-        // $this->subscribed = Session::get('newsletter_subscribed', false);
+        $this->subscribed = Session::get('newsletter_subscribed', false);
     }
 
     #[NoReturn]
