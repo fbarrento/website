@@ -25,15 +25,6 @@
 
     <div class="lg:shrink-0">
         <livewire:newsletter.subscribe />
-        <p class="mt-3 text-sm text-gray-600 dark:text-gray-400">
-            No spam. Unsubscribe anytime. Read the
-            <a
-                href="/privacy"
-                class="text-blue-600 underline decoration-blue-600/30 underline-offset-2 transition-colors hover:text-blue-700 hover:decoration-blue-700/50 dark:text-blue-400 dark:decoration-blue-400/30 dark:hover:text-blue-300"
-            >
-                privacy policy
-            </a>
-            .
-        </p>
+        <p class="mt-3 text-sm text-gray-600 dark:text-gray-400">No spam. Unsubscribe anytime.</p>
     </div>
 </div>
