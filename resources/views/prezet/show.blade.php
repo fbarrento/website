@@ -58,35 +58,7 @@
                 <article
                     class="prose-pre:rounded-xl prose-headings:font-display prose prose-green prose-a:border-b prose-a:border-dashed prose-a:border-black/30 prose-a:font-semibold prose-a:no-underline prose-a:hover:border-solid prose-img:rounded-sm dark:prose-invert max-w-none"
                 >
-                    @php
-                        // Split content at first H2 (## heading) to insert newsletter after introduction
-                        $bodyContent = $body;
-                        $firstH2Position = strpos($bodyContent, '<h2');
-
-                        if ($firstH2Position !== false) {
-                            $beforeFirstH2 = substr($bodyContent, 0, $firstH2Position);
-                            $afterFirstH2 = substr($bodyContent, $firstH2Position);
-                        } else {
-                            // No H2 found, show all content first
-                            $beforeFirstH2 = $bodyContent;
-                            $afterFirstH2 = '';
-                        }
-                    @endphp
-
-                    {{-- Content before first H2 (Introduction) --}}
-                    {!! $beforeFirstH2 !!}
-                </article>
-
-                {{-- Newsletter Component after Introduction --}}
-                <div class="not-prose">
-                    <x-newsletter.inline />
-                </div>
-
-                {{-- Rest of content after first H2 --}}
-                <article
-                    class="prose-pre:rounded-xl prose-headings:font-display prose prose-green prose-a:border-b prose-a:border-dashed prose-a:border-black/30 prose-a:font-semibold prose-a:no-underline prose-a:hover:border-solid prose-img:rounded-sm dark:prose-invert max-w-none"
-                >
-                    {!! $afterFirstH2 !!}
+                    {!! $body !!}
                 </article>
 
                 <div class="border-dark/5 my-10 flex flex-col justify-start gap-y-5 border-t pt-10">
