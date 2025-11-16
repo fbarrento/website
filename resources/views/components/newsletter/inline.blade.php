@@ -1,4 +1,5 @@
 <div
+    id="newsletter"
     class="border-primary-500 from-primary-50/50 to-primary-100/30 ring-primary-500/10 dark:border-primary-600 dark:from-primary-950/20 dark:to-primary-900/10 dark:ring-primary-400/20 my-8 rounded-xl border-l-4 bg-gradient-to-r p-6 ring-1 ring-inset"
 >
     <div class="mb-5 flex items-start gap-3">

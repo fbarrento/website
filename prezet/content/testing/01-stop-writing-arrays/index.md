@@ -12,6 +12,15 @@ tags:
 slug: stop-writing-arrays-in-your-tests-laravel-factories-for-data-objects
 ---
 
+---
+
+**Testing with Data Objects Series**
+- **Part 1:** Stop Writing Arrays in Your Tests ← You are here
+- **Part 2:** [From Laravel Factories to Framework-Agnostic](/blog/testing/building-data-factory-package) ✓
+- **Part 3:** 🔥 Scaling to 1 Million Records (Nov 22) → [Get it first](#newsletter)
+
+---
+
 ![](testing/01-stop-writing-arrays-hero.webp)
 
 Building the [Laravel Ortto SDK](https://github.com/phpdevkits/ortto-sdk) taught me something: test setup shouldn't be harder than the actual testing. When you are integrating with an API that expects complex, nested payloads, raw arrays turn your tests into unreadable nightmares fast.

@@ -14,13 +14,24 @@ image: img/ogimages/building-data-factory-package.webp
 author: francisco
 ---
 
+---
+
+**Testing with Data Objects Series**
+- **Part 1:** [Stop Writing Arrays in Your Tests](/blog/stop-writing-arrays-in-your-tests-laravel-factories-for-data-objects) ✓
+-  **Part 2:** From Laravel Factories to Framework-Agnostic ← You are here
+-  **Part 3:** 🔥 Scaling to 1 Million Records (Nov 22) → [Get it first](#newsletter)
+
+---
+
 ![](articles/packages/02-data-factory-package-hero.webp)
+
 
 After my [last article on using Laravel factories with Data Objects](https://barrento.dev/blog/stop-writing-arrays-in-your-tests-laravel-factories-for-data-objects), I kept thinking: why should only Laravel developers get this elegant API?
 
 If you're building framework-agnostic PHP packages, you face a problem. You need realistic test data, but you can't depend on Laravel's factory system. So you end up writing repetitive array construction code in every test, violating DRY and making maintenance a nightmare.
 
 I built [Data Factory](https://github.com/fbarrento/data-factory) to solve this.
+
 
 ## The Framework-Agnostic Challenge
 
@@ -383,22 +394,53 @@ it('handles server provisioning', function () {
 
 Clean. Readable. Maintainable. And when the Cloud API changes their server structure, I update one factory, not dozens of tests.
 
+---
+
 ## What's Next
 
-Data Factory is on [Packagist](https://packagist.org/packages/fbarrento/data-factory) and actively maintained. The package has:
-- ✅ 100% test coverage
-- ✅ 100% type coverage (PHPStan level 9)
-- ✅ Comprehensive documentation
-- ✅ PHP 8.2+ with modern patterns
+Data Factory is on Packagist and actively maintained. The package has:
 
-I'm considering these features for future releases:
-- `raw()` method for returning attribute arrays without instantiating objects
+✅ 100% test coverage  
+✅ 100% type coverage (PHPStan level 9)  
+✅ Comprehensive documentation  
+✅ PHP 8.2+ with modern patterns
+
+**Coming soon:**
+- `raw()` method for returning attribute arrays
 - `afterMaking()` callbacks for post-processing
 - Export to JSON fixtures
 - Streaming/chunking for massive datasets
 
-In the next article, we'll dive into advanced patterns: managing relationships between factories, custom faker providers, and testing strategies with complex object graphs.
+---
 
-Check out [Data Factory on GitHub](https://github.com/fbarrento/data-factory) and give it a try. If you're building PHP packages or SDKs, it'll change how you write tests.
+## 🔥 Part 3: The 1 Million Record Challenge
 
-Stop writing arrays. Start using factories. Everywhere.
+**Ever tried seeding 1M records for testing?** Your database crawls. Your tests timeout. Your laptop fans scream.
+
+In Part 3 (Nov 22), I'll show you how to use data-factory to generate massive datasets efficiently:
+
+**Use cases:**
+
+- Load testing with realistic data  
+- Frontend development without API dependencies  
+- Database performance benchmarks  
+- Automated test fixtures at scale
+
+**The problem:** Naive seeding = 4 hours + crashes  
+**The solution:** Optimized batching = 8 minutes
+
+[Get Part 3 in your inbox →](#newsletter)
+
+**Missed Part 1?** [Stop Writing Arrays in Your Tests →](/blog/testing/stop-writing-arrays)
+
+---
+
+## 📦 Try Data Factory
+
+Check out [Data Factory on GitHub](link) and give it a try.
+
+If you're building PHP packages or SDKs, it'll change how you write tests.
+
+**Stop writing arrays. Start using factories. Everywhere.**
+
+---
