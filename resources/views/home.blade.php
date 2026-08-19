@@ -12,20 +12,22 @@
 <x-prezet.template>
     @seo([
         'title' => $author['name'] ?? config('app.name', 'Laravel'),
-        'description' => $aboutPage->frontmatter->excerpt ?? 'Personal website and blog',
+        'description' => $aboutPage?->frontmatter->excerpt ?? 'Personal website and blog',
         'url' => route('home'),
         'image' => '/storage/images/francisco.webp',
     ])
 
     <main class="mx-auto max-w-6xl pt-12 sm:pt-16 lg:pt-20">
         <div class="flex flex-col space-y-16">
-            <section>
-                <div
-                    class="prose prose-green prose-h1:font-light prose-p:mb-4 prose-h1:text-3xl dark:prose-invert max-w-none"
-                >
-                    {!! $aboutPage->content !!}
-                </div>
-            </section>
+            @if ($aboutPage)
+                <section>
+                    <div
+                        class="prose prose-green prose-h1:font-light prose-p:mb-4 prose-h1:text-3xl dark:prose-invert max-w-none"
+                    >
+                        {!! $aboutPage->content !!}
+                    </div>
+                </section>
+            @endif
 
             {{-- Latest Posts Section --}}
             <section>
