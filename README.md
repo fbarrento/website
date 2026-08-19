@@ -1,60 +1,353 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# barrento.dev
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Personal website and tech blog built with Laravel 12 and Prezet.
 
-## About Laravel
+## Tech Stack
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- **Laravel 12** with streamlined bootstrap structure
+- **Prezet** for markdown-based content management
+- **Tailwind CSS v4** with `@import "tailwindcss"` syntax
+- **Alpine.js** for interactive components
+- **Livewire 4** for dynamic server-rendered UI
+- **Vite 7** for asset bundling
+- **Pest 4** for testing
+- **Laravel Herd** for local development
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Features
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- **Markdown-based blogging** powered by Prezet with YAML front matter
+- **Multiple content types** — articles, category landing pages, standalone pages, reusable blocks, video posts, and project showcases
+- **Newsletter subscription** via Brevo (formerly Sendinblue), with inline and card signup components
+- **Embeddable rich media** — YouTube videos, Threads posts, and alert callouts directly in markdown
+- **Responsive images** with automatic srcset generation at multiple widths
+- **Full-text search** across all published content
+- **SEO/JSON-LD structured data** with per-author and publisher metadata
+- **Dark mode** with Tailwind CSS `dark:` variant support
+- **Syntax highlighting** via Phiki (NightOwl theme) with line numbers
+- **Sitemap generation** for search engine indexing
+- **OG image generation** for social sharing
 
-## Learning Laravel
+## Prerequisites
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+- PHP 8.2+
+- Composer
+- Node.js and npm
+- [Laravel Herd](https://herd.laravel.com) (recommended for local dev)
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Getting Started
 
-## Laravel Sponsors
+```bash
+git clone <repo-url> && cd website
+composer setup
+php artisan prezet:index
+```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+`composer setup` runs: dependency install, `.env` creation, key generation, database migration, npm install, and asset build.
 
-### Premium Partners
+`php artisan prezet:index` rebuilds the content index from the markdown files.
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+## Development
 
-## Contributing
+```bash
+# Start everything (server, queue, logs, vite) concurrently
+composer run dev
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+# Vite watch only
+npm run dev
 
-## Code of Conduct
+# Production build
+npm run build
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## Testing
 
-## Security Vulnerabilities
+```bash
+# Run all tests
+php artisan test
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+# Or via Composer
+composer test
 
-## License
+# Run a specific test file
+php artisan test tests/Feature/ExampleTest.php
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-# website
+# Filter by test name
+php artisan test --filter=testName
+```
+
+## Code Quality
+
+```bash
+# Format changed files
+vendor/bin/pint --dirty
+
+# Format everything
+vendor/bin/pint
+```
+
+## Content Architecture
+
+All content is managed through Prezet as markdown files with YAML front matter. Newsletter subscriptions are handled by Brevo via `app/Actions/SubscribeNewsletter.php` and `app/Services/Brevo.php`, with signup components embedded in article and index pages.
+
+- **Content** lives in `prezet/content/`
+- **Images** live in `prezet/images/`
+
+### Content Types
+
+Defined in `app/Data/ExtendedFrontmatterData.php`, the `contentType` front matter field determines how content is routed and rendered:
+
+| Type | Description | URL Pattern |
+|------|-------------|-------------|
+| `article` | Blog posts (default if omitted) | `/blog/{slug}` |
+| `category` | Landing page that groups articles by category | `/blog/{slug}` |
+| `page` | Standalone pages | `/{slug}` |
+| `block` | Reusable content blocks embedded in other views (e.g. the about block on the homepage) | Not directly routable |
+| `video` | Video content | `/blog/{slug}` |
+| `project` | Project showcases | `/blog/{slug}` |
+
+### Optional Fields
+
+- **`type`** — `sdk`, `website`, or `webapp`
+- **`theme`** — `default` or `vibrant`
+
+## Creating New Content
+
+### Articles
+
+Articles can be organized in two ways:
+
+**By subcategory under `articles/`** — `prezet/content/articles/{subcategory}/{nn-slug}/index.md`:
+
+```
+prezet/content/articles/packages/01-laravel-cloud-sdk/index.md
+prezet/content/articles/packages/02-data-factory-package/index.md
+```
+
+**By top-level category folder** — `prezet/content/{category}/{nn-slug}/index.md`:
+
+```
+prezet/content/testing/01-stop-writing-arrays/index.md
+```
+
+Both patterns produce articles. The `contentType` field defaults to `article` when omitted, so most articles don't need to set it explicitly.
+
+Front matter example:
+
+```yaml
+---
+title: "Your Article Title"
+date: 2025-12-01
+excerpt: A short description for cards and SEO.
+image: /img/ogimages/your-article.webp
+author: francisco
+category: testing
+tags:
+  - laravel
+  - php
+slug: your-article-slug
+---
+
+Your markdown content here.
+```
+
+Place associated images alongside the content or in `prezet/images/`. For example, images for articles under `articles/packages/` go in `prezet/images/articles/packages/`, and images for testing articles go in `prezet/images/testing/`.
+
+### Pages
+
+Create a markdown file at `prezet/content/pages/{slug}.md`:
+
+```yaml
+---
+title: Page Title
+date: 2025-12-01
+excerpt: Short description.
+slug: page-slug
+contentType: page
+---
+
+Page content here.
+```
+
+### Blocks
+
+Create a markdown file at `prezet/content/blocks/{name}.md`:
+
+```yaml
+---
+title: Block Title
+date: 2025-12-01
+excerpt: Short description.
+contentType: block
+draft: false
+author: francisco
+---
+
+Block content here.
+```
+
+### Category Landing Pages
+
+Create a markdown file that groups articles under a category:
+
+```yaml
+---
+title: Complete Guide to Testing in Laravel
+date: 2025-01-10
+category: Testing
+excerpt: Description of the category.
+slug: testing
+contentType: category
+---
+
+Introductory content shown above the article list.
+```
+
+### Videos
+
+Video posts use the same `ShowController` and `prezet.show` view as articles. Create a markdown file with `contentType: video`:
+
+```yaml
+---
+title: "Video Title"
+date: 2025-12-01
+excerpt: Short description.
+author: francisco
+contentType: video
+slug: video-slug
+tags:
+  - laravel
+---
+
+Introductory text, followed by a YouTube embed:
+
+<x-prezet::youtube videoid="dQw4w9WgXcQ" title="Video Title" />
+```
+
+### Projects
+
+Project showcases follow the same pattern. Create a markdown file with `contentType: project`:
+
+```yaml
+---
+title: "Project Name"
+date: 2025-12-01
+excerpt: What the project does.
+author: francisco
+contentType: project
+type: sdk
+slug: project-slug
+tags:
+  - open-source
+---
+
+Project description and details here.
+```
+
+The `type` field (`sdk`, `website`, or `webapp`) can further classify projects.
+
+### Embeddable Components
+
+Prezet's `MarkdownBladeExtension` allows you to use Blade components directly inside markdown content.
+
+**YouTube embed** — lazy-loaded via lite-youtube:
+
+```html
+<x-prezet::youtube videoid="dQw4w9WgXcQ" title="Video Title" />
+```
+
+**Threads post embed**:
+
+```html
+<x-prezet::threads username="fbarrento" id="C-yDq7mS5II" />
+```
+
+**Alert/callout boxes** — types: `info` (default), `success`, `warning`, `error`:
+
+```html
+<x-prezet::alert type="warning" title="Heads up" body="This is a warning message." />
+```
+
+### After Creating Content
+
+Rebuild the content index so new files are picked up:
+
+```bash
+php artisan prezet:index
+```
+
+## Front Matter Reference
+
+| Field | Required | Description |
+|-------|----------|-------------|
+| `title` | Yes | Document title |
+| `date` | Yes | Publication date (`YYYY-MM-DD`) |
+| `excerpt` | Yes | Short description for cards, feeds, and SEO |
+| `image` | No | Path to the OG/hero image |
+| `author` | No | Author key from `config/prezet.php` |
+| `category` | No | Category slug |
+| `tags` | No | List of tag strings |
+| `slug` | No | URL slug (defaults from filepath or title per config) |
+| `contentType` | No | One of: `article`, `category`, `page`, `block`, `video`, `project` (defaults to `article`) |
+| `draft` | No | Set to `true` to hide from public views |
+| `type` | No | `sdk`, `website`, or `webapp` |
+| `theme` | No | `default` or `vibrant` |
+
+## Routes
+
+| Method | Path | Description |
+|--------|------|-------------|
+| GET | `/` | Homepage |
+| GET | `/blog` | Article index (supports `?category`, `?tag`, `?author` filters) |
+| GET | `/blog/{slug}` | Article, category landing, or video |
+| GET | `/{slug}` | Standalone page |
+| GET | `/search` | Full-text search |
+| GET | `/img/{path}` | Responsive image serving |
+| GET | `/ogimage/{slug}` | OG image generation |
+
+## Authors
+
+Authors are configured in `config/prezet.php` under the `authors` key. Reference them by key in front matter:
+
+```yaml
+author: francisco
+```
+
+Currently defined authors: `francisco`, `prezet`.
+
+## Directory Structure
+
+```
+prezet/
+  content/
+    articles/           # Blog posts, organized by subcategory
+      packages/         #   e.g. SDK and package articles
+    blocks/             # Reusable content blocks (about, etc.)
+    pages/              # Standalone pages (sponsor, etc.)
+    testing/            # Testing-related articles (top-level category)
+  images/               # Content images
+    articles/           #   Article images by subcategory
+    testing/            #   Testing article images
+    ogimages/           # Open Graph images
+  backup/               # Archived sample content
+
+app/
+  Actions/              # SubscribeNewsletter
+  Data/
+    ExtendedFrontmatterData.php
+  Enums/                # LivewireEvents
+  Http/Controllers/
+    Prezet/             # IndexController, ShowController, PageController,
+                        #   SearchController, ImageController, OgimageController
+    HomeController.php
+  Services/             # Brevo (newsletter API)
+
+resources/views/
+  prezet/               # index, show, page, category, ogimage templates
+  components/
+    prezet/             # Blade components: youtube, threads, alert, article,
+                        #   header, nav, sidebar, search, dark-mode-toggle, etc.
+    newsletter/         # inline and card subscription components
+
+config/
+  prezet.php            # Authors, markdown extensions, image config, sitemap
+```
